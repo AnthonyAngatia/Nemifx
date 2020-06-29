@@ -1,0 +1,292 @@
+.section_1 {
+  position: absolute;
+  background: linear-gradient(
+      to bottom right,
+      rgba(245, 246, 252, 0),
+      rgba(204, 174, 3, 0.452)
+    ),
+    url("/assets/Section1Ggrnd.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 90vh;
+  /* width: 99.79vw; */
+}
+/* ****************** Navigation *************************/
+/*******************            *********************/
+/******************* section ***********************/
+.nav_container {
+  position: fixed;
+  /* width: 99.9vw; */
+  /* border: 1px solid #008889; */
+}
+.header {
+  /* background-color: black; */
+  /* color: #003838; */
+  /* border: 1px solid greenyellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10%;
+}
+/* Not necessary */
+.header > img {
+  margin: 0em;
+}
+
+.nav_links {
+  list-style-type: none;
+  cursor: pointer;
+}
+.nav_links li {
+  display: inline;
+  padding: 0px 20px;
+}
+.header li,
+a,
+button {
+  font-size: 24px;
+  text-decoration: none;
+}
+.nav_links li,
+a {
+  transition: all 0.5s ease 0s;
+}
+.nav_links li:hover {
+  background-color: #0000ff4d;
+}
+/* ****************** Call *************************/
+/******************* to action *********************/
+/******************* section ***********************/
+.main-call {
+  font-size: 30px;
+  color: white;
+  /* border: 1px solid white; */
+  /* padding: 15px; */
+  margin: 6em 0em 0em 30px;
+  width: 50vw;
+  /* color: whitesmoke; */
+}
+.sub-call {
+  /* border:1px solid red; */
+  width: 50vw;
+  /* padding: 15px; */
+  margin: 0em 0em 0em 30px;
+  color: white;
+}
+.call-buttons {
+  text-align: center;
+  width: 80vw;
+}
+.call-buttons > a {
+  border-radius: 0px;
+  margin: 0px 15px;
+  color: aliceblue;
+  font-size: 24px;
+  /* background-color: #9b28b0; */
+  background-color: #fa5001;
+  padding: 10px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  box-shadow: 1px 3px 9px #212121;
+  transition: all 0.5s ease 0s;
+}
+.call-buttons > a:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgb(207, 66, 0);
+}
+
+/*  */
+/****** Main ******* */
+/****** Body ******* */
+.container-body {
+  /* border: 1px solid grey; */
+  background-color: white;
+  color: #212121;
+  margin: 2em 2em 1em 2em;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.action-divs-container {
+  /* border: 1px solid rgb(231, 130, 0); */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3em;
+  padding: 5em;
+  margin: 1em;
+  background-image: url("/assets/wave.svg");
+  background-repeat: no-repeat;
+}
+
+.action {
+  /* border: 1px solid green; */
+  text-align: center;
+  padding: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.action:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.action > div {
+  margin: 1em 0px;
+}
+
+.img > img {
+  width: 60px;
+  height: 60px;
+}
+/* **** *************************/
+/* *******Affirmation **********/
+/* ********* ******************/
+.why_us {
+  font-size: 42px;
+  text-align: center;
+  background-color: rgba(139, 156, 172, 0.3);
+  /* border: 1px solid; */
+  padding: 45px;
+}
+.reason-div {
+  /* border: 1px solid brown; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3em;
+  margin: 1em;
+  padding: 5em;
+}
+.reason-div > div {
+  border: 1px solid rgba(0, 0, 255, 0.2);
+  padding: 25px;
+  text-align: center;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+/* **********************U******** */
+/* ***********Small laptops************ */
+/* ***************************** */
+@media only screen and (max-width: 1085px) {
+  .main-call {
+    font-size: 25px;
+  }
+}
+/* **********************U******** */
+/* ***********Tablets************ */
+/* ***************************** */
+@media only screen and (max-width: 890px) {
+  .main-call {
+    font-size: 20px;
+  }
+  .why_us {
+    font-size: 20px;
+  }
+  .action-divs-container {
+    /* border: 1px solid rgb(231, 130, 0); */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3em;
+    padding: 5em 1em;
+    margin: 1em;
+    /* background-image: url("/assets/wave.svg");
+    background-repeat: no-repeat; */
+  }
+  .reason-div {
+    /* border: 1px solid brown; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3em;
+    margin: 1em;
+    padding: 5em 1em;
+  }
+}
+/* **********************U******** */
+/* ***********Tablets************ */
+/* ***************************** */
+@media only screen and (max-width: 780px) {
+  .reason-div {
+    /* border: 1px solid brown; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3em;
+    margin: 1em;
+    padding: 5em 1em;
+  }
+}
+@media only screen and (max-width: 635px) {
+  .main-call {
+    /* border: 1px solid white; */
+    width: 80vw;
+    margin-top: 10em;
+  }
+  .sub-call {
+    width: 80vw;
+  }
+  .call-buttons {
+    width: 98vw;
+  }
+  .call-buttons > a {
+    font-size: 16px;
+  }
+  .container-body {
+    margin: 1em;
+  }
+  .action-divs-container {
+    /* border: 1px solid rgb(231, 130, 0); */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3em;
+    padding: 3em 1em;
+    margin: 1em;
+    /* background-image: url("/assets/wave.svg");
+      background-repeat: no-repeat; */
+  }
+  .reason-div {
+    /* border: 1px solid brown; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3em;
+    margin: 1em;
+    padding: 3em 1em;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .logo {
+    max-width: 150px;
+    max-height: 100px;
+  }
+  .container-body {
+    margin: 1em;
+  }
+  .main-call {
+    /* border: 1px solid white; */
+    font-size: 18px;
+    width: 80vw;
+    margin-top: 6em;
+  }
+  .sub-call {
+    width: 90vw;
+  }
+  .call-buttons {
+    width: 98vw;
+  }
+  .call-buttons > a {
+    padding: 5px;
+    font-size: 16px;
+  }
+  .action-divs-container {
+    /* border: 1px solid rgb(231, 130, 0); */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3em;
+    padding: 3em 1em;
+    margin: 10px;
+    /* background-image: url("/assets/wave.svg");
+        background-repeat: no-repeat; */
+  }
+  .reason-div {
+    /* border: 1px solid brown; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3em;
+    margin: 10px;
+    padding: 3em 1em;
+  }
+}
