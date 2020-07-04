@@ -29,8 +29,10 @@
   padding: 5px 10%;
 }
 /* Not necessary */
-.header > img {
+.logo {
   margin: 0em;
+  height: 50px;
+  width: 100px;
 }
 
 .nav_links {
