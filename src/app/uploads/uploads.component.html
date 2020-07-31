@@ -1,84 +1,8 @@
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
-  * {
-    font-family: "Raleway", sans-serif;
-  }
-  /* // ANCHOR Working on the flex thing so that the scrollbar can move close to the */
-  .uploads-outer {
-    border: 1px solid green;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    background-color: #212121;
-    max-height: 450px;
-  }
-  /* .uploads-outer {
-    display: inline-flex;
-    justify-content: flex-end;
-    background-color: #212121;
-    max-height: 450px;
-  } */
-  /* // ANCHOR Working on the flex thing so that the scrollbar can move close to the */
-
-  .uploads-inner-left {
-    margin: auto;
-
-    color: white;
-  }
-
-  .uploads-inner-right {
-    overflow-y: auto;
-    /* border: 3px solid blueviolet; */
-    max-width: 700px;
-  }
-  .uploads-inner-right > mat-card > * {
-    /* border: 2px solid white; */
-    padding: 5px;
-    /* margin: 5px; */
-  }
-
-  .uploads-outer > div {
-    /* border: 1px solid red; */
-    max-height: 450px;
-  }
-  .uploads-card {
-    /* border: 1px solid red; */
-    margin: 8px;
-    display: inline-flex;
-    justify-content: space-between;
-    max-width: 700px;
-  }
-  .uploads-card > * {
-    /* border: 1px solid green; */
-    margin: auto;
-  }
-</style>
+<p>Uploads is here</p>
 <div class="uploads-outer">
   <div class="uploads-inner-left">
     <h1 style="text-align: center; font-size: 42px;">
       Recent <br />Tips <br />
     </h1>
-  </div>
-  <div class="uploads-inner-right">
-    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card">
-      <p>{{ singleUpload }}</p>
-      <p>
-        <img src="assets/podcasts.svg" alt="podcast" />
-      </p>
-      <p>
-        Lorem ipsum lit.ipsum dolor sit amet consectetur, adipisicing elit
-      </p>
-      <p style="color: rgb(250, 80, 1);">Read 3:30min</p>
-    </mat-card>
-    <mat-card class="uploads-card">
-      <p>6</p>
-      <p>
-        <img src="assets/podcasts.svg" alt="podcast" />
-      </p>
-      <p>
-        Lorem ipsum lit.ipsum xdfcghbjnmlkjhvgfdolor sit amet consectetur,
-        adipisicing elit
-      </p>
-      <p style="color: rgb(250, 80, 1);">Watch 3:30min</p>
-    </mat-card>
   </div>
 </div>
