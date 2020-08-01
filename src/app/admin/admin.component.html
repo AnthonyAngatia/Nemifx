@@ -1,0 +1,40 @@
+<style>
+    .container1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+    }
+</style>
+<div class="container1">
+    <div style="max-width: 50vw; margin: 2em;">
+        <form #uploadsForm="ngForm" (ngSubmit)="onSubmit(uploadsForm.value)">
+            <div class="form-group">
+                <label for="name">Title</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="model.title" name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="read_time">Read time(Minutes)</label>
+                <input type="text" class="form-control" id="read_time" [(ngModel)]="model.readTime" name="readTime">
+            </div>
+
+            <div class="form-group">
+                <label for="type">Upload type</label>
+                <select class="form-control" id="type" required [(ngModel)]="model.contentType" name="type">
+                    <option *ngFor="let type of types" [value]="type">{{type}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Text</label>
+                <textarea class="form-control" name="content" id="textcontent" cols="" rows="10"
+                    [(ngModel)]="model.content">Enter details here</textarea>
+
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+
+        </form>
+    </div>
+    <div>
+        <h1>Preview</h1>
+    </div>
+</div>
