@@ -52,6 +52,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 700px;
+    cursor: pointer;
   }
 
   .uploads-card>* {
@@ -66,15 +67,13 @@
     </h1>
   </div>
   <div class="uploads-inner-right">
-    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card">
-      <p>{{ singleUpload }}</p>
+    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card" routerLink="/uploads">
+
       <p>
-        <img src="assets/podcasts.svg" alt="podcast" />
+        <img src="assets/news.svg" alt="podcast" />
       </p>
-      <p>
-        Lorem ipsum lit.ipsum dolor sit amet consectetur, adipisicing elit
-      </p>
-      <p style="color: rgb(250, 80, 1);">Read 3:30min</p>
+      <p>{{ singleUpload.content | slice:0:70 }}</p>
+      <p style="color: rgb(250, 80, 1);">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
     </mat-card>
   </div>
 </div>

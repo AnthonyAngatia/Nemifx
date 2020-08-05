@@ -1,8 +1,31 @@
-<p>Uploads is here</p>
+<style>
+  .uploads-card {
+    /* border: 1px solid red; */
+    margin: 8px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    /* max-width: 700px; */
+  }
+
+  .uploads-card>* {
+    /* border: 1px solid green; */
+    margin: auto;
+  }
+</style>
 <div class="uploads-outer">
   <div class="uploads-inner-left">
     <h1 style="text-align: center; font-size: 42px;">
-      Recent <br />Tips <br />
+      Recent Tips <br />
     </h1>
+    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card">
+
+      <p>
+        <img src="assets/news.svg" alt="podcast" />
+      </p>
+      <p style="color: rgb(250, 80, 1);">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
+
+      <p>{{ singleUpload.content | slice:0:70 }}</p>
+    </mat-card>
   </div>
 </div>
