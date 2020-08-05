@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from "@angular/fire";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,6 +34,7 @@ const firebaseConfig = {
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     MatCardModule,
     MatButtonModule,
     FormsModule

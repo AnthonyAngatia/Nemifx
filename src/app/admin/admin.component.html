@@ -1,12 +1,33 @@
 <style>
-    .container1 {
+    .container-input-preview {
         display: grid;
         grid-template-columns: 1fr 1fr;
 
     }
+
+    .container-input-preview>div {
+        /* border: 1px solid red; */
+        margin: 1em;
+    }
+
+    .uploads-card {
+        /* border: 1px solid red; */
+        display: flex;
+        margin: 8px;
+        justify-content: space-between;
+        max-width: 700px;
+    }
+
+    .uploads-card>* {
+        /* border: 1px solid green; */
+        margin: auto;
+    }
 </style>
-<div class="container1">
-    <div style="max-width: 50vw; margin: 2em;">
+<div class="container-input-preview">
+    <div>
+        <div style="text-align: center;">
+            <h1>Input</h1>
+        </div>
         <form #uploadsForm="ngForm" (ngSubmit)="onSubmit(uploadsForm.value)">
             <div class="form-group">
                 <label for="name">Title</label>
@@ -30,11 +51,38 @@
                     [(ngModel)]="model.content">Enter details here</textarea>
 
             </div>
+            <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
             <button type="submit" class="btn btn-success">Submit</button>
 
         </form>
     </div>
-    <div>
-        <h1>Preview</h1>
+    <div class="container-preview">
+        <div style="text-align: center;">
+            <h1>Preview</h1>
+        </div>
+
+        <!-- Mat Card -->
+        <mat-card class="uploads-card">
+            <!-- <p> {{ model.title}}</p> -->
+            <p>
+                <img src="assets/podcasts.svg" alt="podcast" />
+            </p>
+            <p>
+                {{ model.content | slice:0:70}}
+            </p>
+            <p style="color: rgb(250, 80, 1);">
+                {{ 
+                    (model.contentType === types[0] ? 'Read' : 
+                    (model.contentType === types[1] ? 'Audio' :
+                    (model.contentType == types[2] ? 'Watch':''
+                    )
+                    )
+                    )
+                 }} {{ model.readTime }}min</p>
+        </mat-card>
+        <!-- Drop down -->
+        <mat-card style="background-color: white; margin-top: 2em; padding: 15px;">
+            <p style="color: black;">{{model.content}}</p>
+        </mat-card>
     </div>
 </div>
