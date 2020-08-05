@@ -1,8 +1,10 @@
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+
   * {
     font-family: "Raleway", sans-serif;
   }
+
   /* // NOTE Working on the flex thing so that the scrollbar can move close to the */
   /* !fixed it using max-width */
   .uploads-outer {
@@ -12,6 +14,7 @@
     background-color: #212121;
     max-height: 450px;
   }
+
   /* .uploads-outer {
       display: inline-flex;
       justify-content: flex-end;
@@ -31,24 +34,28 @@
     /* border: 3px solid blueviolet; */
     max-width: 700px;
   }
-  .uploads-inner-right > mat-card > * {
+
+  .uploads-inner-right>mat-card>* {
     /* border: 2px solid white; */
     padding: 5px;
     /* margin: 5px; */
   }
 
-  .uploads-outer > div {
+  .uploads-outer>div {
     /* border: 1px solid red; */
     max-height: 450px;
   }
+
   .uploads-card {
     /* border: 1px solid red; */
     margin: 8px;
-    display: inline-flex;
+    display: flex;
     justify-content: space-between;
     max-width: 700px;
+    cursor: pointer;
   }
-  .uploads-card > * {
+
+  .uploads-card>* {
     /* border: 1px solid green; */
     margin: auto;
   }
@@ -60,15 +67,13 @@
     </h1>
   </div>
   <div class="uploads-inner-right">
-    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card">
-      <p>{{ singleUpload }}</p>
+    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card" routerLink="/uploads">
+
       <p>
-        <img src="assets/podcasts.svg" alt="podcast" />
+        <img src="assets/news.svg" alt="podcast" />
       </p>
-      <p>
-        Lorem ipsum lit.ipsum dolor sit amet consectetur, adipisicing elit
-      </p>
-      <p style="color: rgb(250, 80, 1);">Read 3:30min</p>
+      <p>{{ singleUpload.content | slice:0:70 }}</p>
+      <p style="color: rgb(250, 80, 1);">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
     </mat-card>
   </div>
 </div>

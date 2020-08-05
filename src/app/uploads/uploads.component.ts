@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-uploads',
@@ -6,7 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./uploads.component.css'],
 })
 export class UploadsComponent implements OnInit {
-  constructor() {}
+  uploads: any[];
+  constructor(private uploadService: UploadService) {
 
-  ngOnInit(): void {}
+  }
+
+  ngOnInit(): void {
+    let uploads = this.uploadService.getData();
+    uploads.snapshotChanges().subscribe(item => {
+      this.uploads = [];
+      item.forEach(element => {
+        let x = element.payload.toJSON()
+        console.log(x);
+        x["$key"] = element.key;
+        console.log(x);
+        this.uploads.push(x);
+      })
+    })
+  }
 }
