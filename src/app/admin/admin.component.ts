@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
+import { CKEditor4 } from 'ckeditor4-angular';
 
 @Component({
   selector: 'app-admin',
@@ -24,9 +25,9 @@ export class AdminComponent implements OnInit {
       this.uploads = [];
       item.forEach(element => {
         let x = element.payload.toJSON()
-        console.log(x);
+        // console.log(x);
         x["$key"] = element.key;
-        console.log(x);
+        // console.log(x);
         this.uploads.push(x);
       })
     })
@@ -36,6 +37,10 @@ export class AdminComponent implements OnInit {
     console.log(uploadsData);
     this.uploadService.insertData(uploadsData);
 
+  }
+
+  onChange(event: CKEditor4.EventInfo) {
+    console.log(event.editor.getData());
   }
 
 }

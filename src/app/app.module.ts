@@ -19,6 +19,8 @@ import { AdminComponent } from './admin/admin.component';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 import { DataTableComponent } from './data-table/data-table.component';
+import { CKEditorModule } from "ckeditor4-angular";
+import { CkEditorFormSampleComponent } from './ck-editor-form-sample/ck-editor-form-sample.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDqzgI6RwYAJcXdhWJxnPs3k52o04Xo6k",
@@ -32,7 +34,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, DataTableComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, DataTableComponent, CkEditorFormSampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,7 +46,8 @@ const firebaseConfig = {
     MatTableModule,
     MatSortModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

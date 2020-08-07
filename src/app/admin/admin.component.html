@@ -45,11 +45,16 @@
                     <option *ngFor="let type of types" [value]="type">{{type}}</option>
                 </select>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Text</label>
                 <textarea class="form-control" name="content" id="textcontent" cols="" rows="10"
                     [(ngModel)]="model.content">Enter details here</textarea>
 
+            </div> -->
+            <div class="form-group">
+                <label for="name">Editor</label>
+                <ckeditor #editor [(ngModel)]="model.content" id="textcontent" name="content" type="divarea">
+                </ckeditor>
             </div>
             <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
             <button type="submit" class="btn btn-success">Submit</button>
@@ -68,7 +73,7 @@
                 <img src="assets/podcasts.svg" alt="podcast" />
             </p>
             <p>
-                {{ model.content | slice:0:70}}
+                {{model.content | slice:0:70 }}
             </p>
             <p style="color: rgb(250, 80, 1);">
                 {{ 
@@ -82,7 +87,7 @@
         </mat-card>
         <!-- Drop down -->
         <mat-card style="background-color: white; margin-top: 2em; padding: 15px;">
-            <p style="color: black;">{{model.content}}</p>
+            <p style="color: black;" [innerHTML]="model.content"></p>
         </mat-card>
     </div>
 </div>
