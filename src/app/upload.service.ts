@@ -26,14 +26,10 @@ export class UploadService {
       readTime: upload.readTime,
       time: upload.time
     });
-    // this.uploadsList.push({
-    //   title: upload.title,
-    //   content: upload.content,
-    //   contentType: upload.contentType,
-    //   readTime: upload.readTime,
-    //   time: upload.time
+  }
+  deleteData(key: string) {
+    this.uploadsList.remove(key);
 
-    // })
   }
 
 }
