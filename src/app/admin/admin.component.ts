@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Upload } from '../upload';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { FormUploadComponent } from '../form-upload/form-upload.component';
 
 @Component({
   selector: 'app-admin',
@@ -9,14 +12,12 @@ import { CKEditor4 } from 'ckeditor4-angular';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  types = ["text", "audio", "video"];
-  today: any = Date();
   uploads: any[];
-  randomText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, repellat! Omnis minima repellendus aperiam in facilis, ipsum harum quos, natus officia nemo eum et. Quibusdam numquam velit autem rerum alias?Architecto esse unde fugiat id voluptatem itaque illo maiores blanditiis provident, cum cumque dolor rerum tempora asperiores quis nesciunt ipsa dolore. Eos dolores error suscipit sunt architecto animi beatae quos?";
+  displayedColumns: string[] = ['content', 'Title', 'Time', 'Update', 'Delete'];
+  dataSource = new MatTableDataSource(this.uploads);
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  model = new Upload("My title", this.types[0], this.today, "3:30", this.randomText);
-
-  constructor(private uploadService: UploadService) { }
+  constructor(private uploadService: UploadService, private dialog: MatDialog) { }
 
 
   ngOnInit() {
@@ -30,17 +31,25 @@ export class AdminComponent implements OnInit {
         // console.log(x);
         this.uploads.push(x);
       })
+      this.dataSource = new MatTableDataSource(this.uploads);
+      this.dataSource.sort = this.sort;
     })
   }
 
-  onSubmit(uploadsData) {
-    console.log(uploadsData);
-    this.uploadService.insertData(uploadsData);
-
+  onAdd() {
+    this.dialog.open(FormUploadComponent);
   }
 
-  onChange(event: CKEditor4.EventInfo) {
-    console.log(event.editor.getData());
+  onUpdate(row) {
+    this.uploadService.populateForm(row);
+    this.dialog.open(FormUploadComponent);
+  }
+
+  onDelete(key: string) {
+    // if (confirm('Are you sure you want to delete this item?') == true) {
+    this.uploadService.deleteData(key);
+    // }
+
   }
 
 }

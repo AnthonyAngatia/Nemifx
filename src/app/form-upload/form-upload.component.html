@@ -1,0 +1,23 @@
+<p>form-upload works!</p>
+<div style="text-align: center;">
+    <h1>Add or Update a post</h1>
+</div>
+<form #uploadsForm="ngForm" (ngSubmit)="onSubmit(uploadsForm.value)">
+    <input type="hidden" style=" color: blueviolet;" name="$key" [(ngModel)]="model.$key">
+    <div class="form-group">
+        <label for="name">Title</label>
+        <textarea type="text" class="form-control" id="name" required [(ngModel)]="model.title" name="title"
+            maxlength="70"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Editor</label>
+        <ckeditor #editor [(ngModel)]="model.editorContent" id="textcontent" name="editorContent" type="divarea"
+            style="color:black">
+        </ckeditor>
+    </div>
+    <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
+    <button type="submit" mat-raised-button class="btn btn-success">Submit</button>
+    <button (click)="onPreview()" mat-raised-button class="btn btn-success">Preview</button>
+
+</form>

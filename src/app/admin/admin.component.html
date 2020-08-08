@@ -1,94 +1,42 @@
-<style>
-    .container-input-preview {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-    }
-
-    .container-input-preview>div {
-        /* border: 1px solid red; */
-        margin: 1em;
-    }
-
-    .uploads-card {
-        /* border: 1px solid red; */
-        display: flex;
-        margin: 8px;
-        justify-content: space-between;
-        max-width: 700px;
-    }
-
-    .uploads-card>* {
-        /* border: 1px solid green; */
-        margin: auto;
-    }
-</style>
-<div class="container-input-preview">
-    <div>
-        <div style="text-align: center;">
-            <h1>Input</h1>
-        </div>
-        <form #uploadsForm="ngForm" (ngSubmit)="onSubmit(uploadsForm.value)">
-            <div class="form-group">
-                <label for="name">Title</label>
-                <input type="text" class="form-control" id="name" required [(ngModel)]="model.title" name="title">
-            </div>
-
-            <div class="form-group">
-                <label for="read_time">Read time(Minutes)</label>
-                <input type="text" class="form-control" id="read_time" [(ngModel)]="model.readTime" name="readTime">
-            </div>
-
-            <div class="form-group">
-                <label for="type">Upload type</label>
-                <select class="form-control" id="type" required [(ngModel)]="model.contentType" name="type">
-                    <option *ngFor="let type of types" [value]="type">{{type}}</option>
-                </select>
-            </div>
-            <!-- <div class="form-group">
-                <label>Text</label>
-                <textarea class="form-control" name="content" id="textcontent" cols="" rows="10"
-                    [(ngModel)]="model.content">Enter details here</textarea>
-
-            </div> -->
-            <div class="form-group">
-                <label for="name">Editor</label>
-                <ckeditor #editor [(ngModel)]="model.content" id="textcontent" name="content" type="divarea">
-                </ckeditor>
-            </div>
-            <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
-            <button type="submit" class="btn btn-success">Submit</button>
-
-        </form>
-    </div>
-    <div class="container-preview">
-        <div style="text-align: center;">
-            <h1>Preview</h1>
-        </div>
-
-        <!-- Mat Card -->
-        <mat-card class="uploads-card">
-            <!-- <p> {{ model.title}}</p> -->
-            <p>
-                <img src="assets/podcasts.svg" alt="podcast" />
-            </p>
-            <p>
-                {{model.content | slice:0:70 }}
-            </p>
-            <p style="color: rgb(250, 80, 1);">
-                {{ 
-                    (model.contentType === types[0] ? 'Read' : 
-                    (model.contentType === types[1] ? 'Audio' :
-                    (model.contentType == types[2] ? 'Watch':''
-                    )
-                    )
-                    )
-                 }} {{ model.readTime }}min</p>
-        </mat-card>
-        <!-- Drop down -->
-        <mat-card style="background-color: white; margin-top: 2em; padding: 15px;">
-            <p style="color: black;" [innerHTML]="model.content"></p>
-        </mat-card>
-    </div>
+<h1>Welcome</h1>
+<div style="text-align: center;">
+    <h1>List</h1>
 </div>
-<app-data-table></app-data-table>
+<div>
+    <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+    <div style="margin: 1em;">
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="Title">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+            <!-- Content Column -->
+            <ng-container matColumnDef="content">
+                <th mat-header-cell *matHeaderCellDef> Content </th>
+                <td mat-cell *matCellDef="let element"> {{element.editorContent | slice: 0:60}}... </td>
+            </ng-container>
+            <!-- Time Column -->
+            <ng-container matColumnDef="Time">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.time | date: 'short'}} </td>
+            </ng-container>
+            <!-- Update Column -->
+            <ng-container matColumnDef="Update">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Update </th>
+                <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary"
+                        (click)="onUpdate(element)">
+                        Update</button></td>
+            </ng-container>
+            <!-- Delete Column -->
+            <ng-container matColumnDef="Delete">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
+                <td mat-cell *matCellDef="let element"><button mat-flat-button color="warn"
+                        (click)="onDelete(element.$key)">
+                        Delete</button> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </div>
