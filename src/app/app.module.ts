@@ -19,9 +19,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminComponent } from './admin/admin.component';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
-import { DataTableComponent } from './data-table/data-table.component';
 import { CKEditorModule } from "ckeditor4-angular";
-import { CkEditorFormSampleComponent } from './ck-editor-form-sample/ck-editor-form-sample.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ContentDisplayComponent } from './content-display/content-display.component';
 
@@ -37,7 +35,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, DataTableComponent, CkEditorFormSampleComponent, FormUploadComponent, ContentDisplayComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, FormUploadComponent, ContentDisplayComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
