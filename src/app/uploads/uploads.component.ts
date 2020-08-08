@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../upload.service';
+import { Upload } from '../upload';
+import { MatDialog } from '@angular/material/dialog';
+import { ContentDisplayComponent } from '../content-display/content-display.component';
 
 @Component({
   selector: 'app-uploads',
@@ -8,7 +11,7 @@ import { UploadService } from '../upload.service';
 })
 export class UploadsComponent implements OnInit {
   uploads: any[];
-  constructor(private uploadService: UploadService) {
+  constructor(private uploadService: UploadService, private dialog: MatDialog) {
 
   }
 
@@ -24,5 +27,13 @@ export class UploadsComponent implements OnInit {
         this.uploads.push(x);
       })
     })
+  }
+
+  onOpen(upload: Upload) {
+    this.uploadService.uploads = upload;
+    this.dialog.open(ContentDisplayComponent);
+
+
+
   }
 }

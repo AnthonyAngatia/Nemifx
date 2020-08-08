@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CkEditorFormSampleComponent } from './ck-editor-form-sample.component';
+import { FormUploadComponent } from './form-upload.component';
 
-describe('CkEditorFormSampleComponent', () => {
-  let component: CkEditorFormSampleComponent;
-  let fixture: ComponentFixture<CkEditorFormSampleComponent>;
+describe('FormUploadComponent', () => {
+  let component: FormUploadComponent;
+  let fixture: ComponentFixture<FormUploadComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CkEditorFormSampleComponent ]
+      declarations: [ FormUploadComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CkEditorFormSampleComponent);
+    fixture = TestBed.createComponent(FormUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
