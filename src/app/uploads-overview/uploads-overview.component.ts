@@ -19,9 +19,7 @@ export class UploadsOverviewComponent implements OnInit {
       this.uploads = [];
       item.forEach(element => {
         let x = element.payload.toJSON()
-        console.log(x);
         x["$key"] = element.key;
-        console.log(x);
         this.uploads.push(x);
       })
     })

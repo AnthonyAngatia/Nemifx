@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e) {
+    console.log(window.pageYOffset);
+    let element = document.querySelector('.nav_container');
+    if (window.pageYOffset > 140) {
+      // element.classList.add('nav_container2');
+    } else {
+      // element.classList.remove('nav_container2');
+    }
   }
 
 }

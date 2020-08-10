@@ -17,7 +17,6 @@
         </ckeditor>
     </div>
     <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
-    <button type="submit" mat-raised-button class="btn btn-success">Submit</button>
-    <button (click)="onPreview()" mat-raised-button class="btn btn-success">Preview</button>
-
+    <button type="submit" mat-raised-button class="btn btn-success" style="margin-right: 1em;">Submit</button>
+    <button type="button" (click)="onPreview()" mat-raised-button class="btn btn-success">Preview</button>
 </form>

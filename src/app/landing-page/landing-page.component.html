@@ -1,16 +1,16 @@
-<div class="section_1">
+<div class="section_1" (scroll)="onWindowScroll($event)">
     <div class="nav_container">
         <header class="header">
             <img class="logo" src="assets/nemilogo.png" alt="Logo" />
             <nav class="nav_links">
-                <li></li>
-                <li></li>
+                <li>Posts</li>
+                <li>Analysis</li>
                 <li></li>
                 <li></li>
             </nav>
         </header>
     </div>
-    <div class="main-call" data-rellax-speed="-4">
+    <div class="main-call" (scroll)="onWindowScroll($event)">
         <h1>Lorem Ipsum Dolor Tecum Quo</h1>
     </div>
     <div class="sub-call">

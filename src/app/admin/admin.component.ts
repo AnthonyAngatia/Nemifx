@@ -37,6 +37,7 @@ export class AdminComponent implements OnInit {
   }
 
   onAdd() {
+    this.uploadService.initializeForm();
     this.dialog.open(FormUploadComponent);
   }
 
