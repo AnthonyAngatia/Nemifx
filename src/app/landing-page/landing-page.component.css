@@ -15,8 +15,16 @@
   /*******************            *********************/
   /******************* section ***********************/
   .nav_container {
-    position: fixed;
+    color: white;
+    /* position: fixed; */
     /* width: 99.9vw; */
+    /* border: 1px solid #008889; */
+  }
+  .nav_container2 {
+    color: white;
+    background-color:#212121;
+    position: fixed;
+    width: 99.9vw;
     /* border: 1px solid #008889; */
   }
   .header {

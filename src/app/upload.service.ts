@@ -20,7 +20,7 @@ export class UploadService {
   initializeForm() {
     const upload = {
       $key: null,
-      title: "",
+      title: "My title goes here and it can extend till somewhere here",
       time: "",
       editorContent: this.randomText
     }
