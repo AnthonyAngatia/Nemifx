@@ -14,13 +14,12 @@ export class LandingPageComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event'])
-  onWindowScroll(e) {
-    console.log(window.pageYOffset);
+  onWindowScroll(e: Event) {
     let element = document.querySelector('.nav_container');
     if (window.pageYOffset > 140) {
-      // element.classList.add('nav_container2');
+      element.classList.add('nav_container2');
     } else {
-      // element.classList.remove('nav_container2');
+      element.classList.remove('nav_container2');
     }
   }
 

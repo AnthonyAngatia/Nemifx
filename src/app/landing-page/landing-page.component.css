@@ -1,5 +1,6 @@
 .section_1 {
-    position: absolute;
+    /* position: absolute; */
+    border: 0.1px solid rgb(124,98,22, 0.001);
     background: linear-gradient(
         to bottom right,
         rgba(245, 246, 252, 0),
@@ -9,23 +10,29 @@
     background-position: center center;
     background-size: cover;
     height: 90vh;
+    background-color: darkolivegreen;
+    /* margin-top: 1em; */
     /* width: 99.79vw; */
   }
   /* ****************** Navigation *************************/
   /*******************            *********************/
   /******************* section ***********************/
   .nav_container {
+    /* position:absolute;  */
     color: white;
+    background-color: #212121;
     /* position: fixed; */
     /* width: 99.9vw; */
     /* border: 1px solid #008889; */
+  
   }
   .nav_container2 {
     color: white;
     background-color:#212121;
     position: fixed;
-    width: 99.9vw;
+    width: 100vw;
     /* border: 1px solid #008889; */
+    
   }
   .header {
     /* background-color: black; */
@@ -54,15 +61,13 @@
   .header li,
   a,
   button {
-    font-size: 24px;
+    font-size: 16px;
     text-decoration: none;
   }
   .nav_links li,
-  a {
-    transition: all 0.5s ease 0s;
-  }
+ 
   .nav_links li:hover {
-    background-color: #0000ff4d;
+    text-decoration-line: underline;
   }
   /* ****************** Call *************************/
   /******************* to action *********************/
@@ -97,7 +102,7 @@
     padding: 10px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     box-shadow: 1px 3px 9px #212121;
-    transition: all 0.5s ease 0s;
+    transition: box-shadow, background-color 0.5s ease 0s;
   }
   .call-buttons > a:hover {
     cursor: pointer;
