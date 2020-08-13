@@ -16,7 +16,8 @@
   }
 
   .uploads-outer {
-    border: 1px solid green;
+    border-radius: 5px;
+    /* border: 1px solid green; */
     display: grid;
     grid-template-columns: 1fr 2fr;
     background-color: #212121;

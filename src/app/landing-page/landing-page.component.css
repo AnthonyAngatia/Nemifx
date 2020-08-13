@@ -123,15 +123,30 @@
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
   
-  .action-divs-container {
-    /* border: 1px solid rgb(231, 130, 0); */
+  /* .action-divs-container {
+    border: 1px solid rgb(231, 130, 0);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3em;
     padding: 5em;
     margin: 1em;
+    min-height: 30vh;
     background-image: url("/assets/wave.svg");
     background-repeat: no-repeat;
+  } */
+  .action-divs-containers{
+    margin-top: 2em;
+    /* border: 1px solid rgb(231, 130, 0); */
+    text-align: center;
+  }
+  
+  .action-divs-container > *{
+    /* border: 1px solid rgb(231, 130, 0); */
+
+  }
+  .nemi-description{
+    /* border: 1px solid blueviolet; */
+    text-align: center;
   }
   
   .action {
@@ -176,6 +191,10 @@
     padding: 25px;
     text-align: center;
     /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2); */
+  }
+  .footer{
+    min-height: 50vh;
+    background-color: #212121;
   }
   /* **********************U******** */
   /* ***********Small laptops************ */

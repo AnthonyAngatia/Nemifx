@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from "ckeditor4-angular";
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ContentDisplayComponent } from './content-display/content-display.component';
+import { FooterComponent } from './footer/footer.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDqzgI6RwYAJcXdhWJxnPs3k52o04Xo6k",
@@ -35,7 +36,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, FormUploadComponent, ContentDisplayComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, FormUploadComponent, ContentDisplayComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
