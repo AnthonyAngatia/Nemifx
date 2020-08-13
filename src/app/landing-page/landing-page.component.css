@@ -64,7 +64,9 @@
     font-size: 16px;
     text-decoration: none;
   }
-  .nav_links li,
+  .nav_links li{
+
+  }
  
   .nav_links li:hover {
     text-decoration-line: underline;
@@ -114,7 +116,7 @@
   /****** Main ******* */
   /****** Body ******* */
   .container-body {
-    /* border: 1px solid grey; */
+    border-radius: 5px;
     background-color: white;
     color: #212121;
     margin: 2em 2em 1em 2em;
@@ -170,10 +172,10 @@
     padding: 5em;
   }
   .reason-div > div {
-    border: 1px solid rgba(0, 0, 255, 0.2);
+    /* border: 1px solid rgba(0, 0, 255, 0.2); */
     padding: 25px;
     text-align: center;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+    /* box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2); */
   }
   /* **********************U******** */
   /* ***********Small laptops************ */
