@@ -1,18 +1,22 @@
-<div class="nav_container">
-    <header class="header">
-        <img class="logo" src="assets/nemilogo.png" alt="Logo" />
-        <nav class="nav_links">
-            <li>Recent Posts</li>
-            <li>Analysis</li>
-            <li>Crypto markets</li>
-            <li>Community</li>
-        </nav>
-    </header>
-</div>
-<div class="section_1" (scroll)="onWindowScroll($event)">
+<app-nav-bar></app-nav-bar>
+<div class="section_1">
     <div class="main-call">
-        <h1>Supercharge your<br> Trading Decisions</h1>
+        <div style="text-align: center;">
+            <h1>Supercharge your</h1>
+        </div>
+        <div class="mant-font">
+            <h1>Trading<br>Decisions</h1>
+        </div>
+
     </div>
+    <div class="main-call mobile">
+        <div style="text-align: center;">
+            <h1>Supercharge your<br> Trading Decisions</h1>
+
+        </div>
+
+    </div>
+
     <div class="sub-call">
         <h3>
             Check our recent tips to help you make informed decisions and learn from the masters. We've got a wide range
@@ -20,25 +24,34 @@
     </div>
     <div class="call-buttons">
         <a href="#">
-            How to trade
+            Trends Analysis
         </a>
-        <a href="#">Latest Tips</a>
+        <a routerLink="/uploads">Latest Tips</a>
     </div>
     <!-- Main -->
     <!-- Body -->
     <div class="container-body">
         <app-uploads-overview></app-uploads-overview>
-        <div class="action-divs-containers">
-            <div style="text-align: center; padding: 16px;">
+        <div class="about-us">
+            <div style="text-align: center; padding: 16px;margin: 1em;">
                 <img src="assets/nemilogo.png" alt="Image1" />
             </div>
             <div class="nemi-description">
-                <p style="max-width:60vw; margin: auto; padding: 8px;">We guide traders and
+                <p style="max-width:60vw; margin: auto; padding: 8px; font-size: 18pt;">We guide traders and
                     make them
                     aware of every
                     (downfall) and capitalize on any
                     (up) by providing the
-                    latest insights from the (data in the market).<strong>Basically put here WHAT YOU DO</strong></p>
+                    latest insights from the (data in the market).<strong>Basically put here WHAT YOU DO</strong> make
+                    them
+                    aware of every
+                    (downfall) and capitalize on any
+                    (up) by providing the
+                    latest insights from the (data in the market) make them
+                    aware of every
+                    (downfall) and capitalize on any
+                    (up) by providing the
+                    latest insights from the (data in the market)</p>
             </div>
 
             <!-- <div class="action">
@@ -66,11 +79,12 @@
                 </div>
             </div> -->
         </div>
-        <div>
+        <!-- <div>
             <h1 class="why_us">
                 Why Us
             </h1>
-        </div>
+        </div> -->
+
         <!-- <hr >
       <div class="vertical-line2" >
           <div class="vl"></div>

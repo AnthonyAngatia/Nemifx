@@ -4,6 +4,7 @@
     background-image: url("/assets/wave.svg");
     background-repeat: no-repeat;
     color: white;
+    padding: 2em;
 
    
   }
@@ -40,6 +41,11 @@
   }
   .social-links > i{
       padding: 5px 10px;
+      cursor: pointer;
+      transition: color 0.5s ease 0s;
+    }
+  .social-links > i:hover{
+      color:#fa5001;
   }
   .icon{
       margin: 0.5em;

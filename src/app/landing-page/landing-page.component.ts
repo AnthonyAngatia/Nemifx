@@ -13,14 +13,4 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(e: Event) {
-    let element = document.querySelector('.nav_container');
-    if (window.pageYOffset > 140) {
-      element.classList.add('nav_container2');
-    } else {
-      element.classList.remove('nav_container2');
-    }
-  }
-
 }

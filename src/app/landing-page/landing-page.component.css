@@ -17,71 +17,33 @@
   /* ****************** Navigation *************************/
   /*******************            *********************/
   /******************* section ***********************/
-  .nav_container {
-    /* position:absolute;  */
-    color: white;
-    background-color: #212121;
-    /* position: fixed; */
-    /* width: 99.9vw; */
-    /* border: 1px solid #008889; */
   
-  }
-  .nav_container2 {
-    color: white;
-    background-color:#212121;
-    position: fixed;
-    width: 100vw;
-    /* border: 1px solid #008889; */
-    
-  }
-  .header {
-    /* background-color: black; */
-    /* color: #003838; */
-    /* border: 1px solid greenyellow; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 10%;
-  }
-  /* Not necessary */
-  .logo {
-    margin: 0em;
-    height: 50px;
-    width: 100px;
-  }
-  
-  .nav_links {
-    list-style-type: none;
-    cursor: pointer;
-  }
-  .nav_links li {
-    display: inline;
-    padding: 0px 20px;
-  }
-  .header li,
-  a,
-  button {
-    font-size: 16px;
-    text-decoration: none;
-  }
-  .nav_links li{
-
-  }
- 
-  .nav_links li:hover {
-    text-decoration-line: underline;
-  }
   /* ****************** Call *************************/
   /******************* to action *********************/
   /******************* section ***********************/
   .main-call {
+    display: flex;
+    align-items: center;
     font-size: 30px;
     color: white;
     /* border: 1px solid white; */
     /* padding: 15px; */
-    margin: 6em 0em 0em 30px;
+    margin: 2em 0em 0em 30px;
     width: 50vw;
     /* color: whitesmoke; */
+  }
+  .mant-font{
+   
+    font-family: Manterah;
+    font-size: 42pt;
+    /* border: 1px solid yellow; */
+  }
+  .mant-font > h1{
+    margin:0px 5px 0px 5px;
+  }
+
+  .mobile{
+    display:none;
   }
   .sub-call {
     /* border:1px solid red; */
@@ -95,11 +57,11 @@
     width: 80vw;
   }
   .call-buttons > a {
+    text-decoration:none;
     border-radius: 0px;
     margin: 0px 15px;
     color: aliceblue;
     font-size: 24px;
-    /* background-color: #9b28b0; */
     background-color: #fa5001;
     padding: 10px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
@@ -118,7 +80,7 @@
   .container-body {
     border-radius: 5px;
     background-color: white;
-    color: #212121;
+    color: black;
     margin: 2em 2em 1em 2em;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
@@ -134,15 +96,11 @@
     background-image: url("/assets/wave.svg");
     background-repeat: no-repeat;
   } */
-  .action-divs-containers{
-    margin-top: 2em;
+  .about-us{
+    margin: 10em 0px 10em 0px;
     /* border: 1px solid rgb(231, 130, 0); */
     text-align: center;
-  }
-  
-  .action-divs-container > *{
-    /* border: 1px solid rgb(231, 130, 0); */
-
+    
   }
   .nemi-description{
     /* border: 1px solid blueviolet; */
@@ -201,7 +159,7 @@
   /* ***************************** */
   @media only screen and (max-width: 1085px) {
     .main-call {
-      font-size: 25px;
+      /* font-size: 25px; */
     }
   }
   /* **********************U******** */
@@ -210,20 +168,15 @@
   @media only screen and (max-width: 890px) {
     .main-call {
       font-size: 20px;
+      
+    }
+    .mant-font{
+      font-size:32pt;
     }
     .why_us {
       font-size: 20px;
     }
-    .action-divs-container {
-      /* border: 1px solid rgb(231, 130, 0); */
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 3em;
-      padding: 5em 1em;
-      margin: 1em;
-      /* background-image: url("/assets/wave.svg");
-      background-repeat: no-repeat; */
-    }
+    
     .reason-div {
       /* border: 1px solid brown; */
       display: grid;
@@ -248,9 +201,13 @@
   }
   @media only screen and (max-width: 635px) {
     .main-call {
+      display: none;
       /* border: 1px solid white; */
       width: 80vw;
       margin-top: 10em;
+    }
+    .mobile{
+      display: block;
     }
     .sub-call {
       width: 80vw;
@@ -264,16 +221,7 @@
     .container-body {
       margin: 1em;
     }
-    .action-divs-container {
-      /* border: 1px solid rgb(231, 130, 0); */
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 3em;
-      padding: 3em 1em;
-      margin: 1em;
-      /* background-image: url("/assets/wave.svg");
-        background-repeat: no-repeat; */
-    }
+    
     .reason-div {
       /* border: 1px solid brown; */
       display: grid;
