@@ -13,3 +13,7 @@ body {
 mat-card {
   color: #212121;
 }
+@font-face {
+  font-family: Manterah;
+  src: url(assets/Manterah.ttf) format("opentype");
+}

@@ -1,15 +1,23 @@
-<div class="uploads-inner-left">
-  <h1 style="text-align: center; font-size: 42px;">
-    Recent Tips <br />
-  </h1>
-  <mat-card *ngFor="let singleUpload of uploads" class="uploads-card" routerLink="/uploads">
+<app-nav-bar></app-nav-bar>
 
-    <div style="flex:0.5"><img src="assets/news.svg" alt="podcast" /></div>
-    <div style="flex:5">
-      <p>{{ singleUpload.title | slice:0:70 }}</p>
-    </div>
-    <div style="flex:2">
-      <p style="color: #fa5001;">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
-    </div>
-  </mat-card>
+<div class="uploads-inner-left">
+  <div>
+    <h1 class="heading">
+      Recent Tips <br />
+    </h1>
+  </div>
+
+  <div class="cards">
+    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card" routerLink="/uploads">
+
+      <div style="flex:0.5"><img src="assets/news.svg" alt="podcast" /></div>
+      <div style="flex:5">
+        <p>{{ singleUpload.title | slice:0:70 }}</p>
+      </div>
+      <div style="flex:2">
+        <p style="color: #fa5001;">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
+      </div>
+    </mat-card>
+  </div>
 </div>
+<app-footer></app-footer>
