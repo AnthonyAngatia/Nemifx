@@ -26,10 +26,8 @@ export class AdminComponent implements OnInit {
       this.uploads = [];
       item.forEach(element => {
         let x = element.payload.toJSON()
-        // console.log(x);
         x["$key"] = element.key;
-        // console.log(x);
-        this.uploads.push(x);
+        this.uploads.unshift(x)
       })
       this.dataSource = new MatTableDataSource(this.uploads);
       this.dataSource.sort = this.sort;
@@ -47,9 +45,9 @@ export class AdminComponent implements OnInit {
   }
 
   onDelete(key: string) {
-    // if (confirm('Are you sure you want to delete this item?') == true) {
-    this.uploadService.deleteData(key);
-    // }
+    if (confirm('Are you sure you want to delete this item?') == true) {
+      this.uploadService.deleteData(key);
+    }
 
   }
 

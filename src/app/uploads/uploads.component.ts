@@ -24,7 +24,7 @@ export class UploadsComponent implements OnInit {
         console.log(x);
         x["$key"] = element.key;
         console.log(x);
-        this.uploads.push(x);
+        this.uploads.unshift(x)
       })
     })
   }

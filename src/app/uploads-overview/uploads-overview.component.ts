@@ -20,7 +20,8 @@ export class UploadsOverviewComponent implements OnInit {
       item.forEach(element => {
         let x = element.payload.toJSON()
         x["$key"] = element.key;
-        this.uploads.push(x);
+        // this.uploads.push(x);
+        this.uploads.unshift(x)
       })
     })
   }
