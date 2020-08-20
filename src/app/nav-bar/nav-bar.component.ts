@@ -8,6 +8,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
         <img class="logo" src="assets/nemilogo.png" alt="Logo" routerLink="/landing" />
         <nav class="nav_links">
             <li routerLink ="/uploads">Recent Posts</li>
+            <li><a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer" style="color:white">Telegram Group</a></li>
             <!-- <li class="analysis" >Analysis</li> -->
             <!-- <li>Crypto markets</li> -->
             <!-- <li>Community</li> -->

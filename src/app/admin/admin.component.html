@@ -9,7 +9,7 @@
 <div style="text-align: center;">
     <h1>List</h1>
 </div>
-<div >
+<div>
     <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
     <div style="margin: 1em;">
         <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
@@ -26,7 +26,7 @@
             <ng-container matColumnDef="Time">
                 <th class="cell" mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
                 <td class="cell" mat-cell *matCellDef="let element">
-                    {{element.time | date: 'short'}} </td>
+                    {{element.time | date: 'd/M/yy, h:mm a'}} </td>
             </ng-container>
             <!-- Update Column -->
             <ng-container matColumnDef="Update">
