@@ -24,6 +24,9 @@ mat-card {
   transition-property: border-left;
   transition-timing-function: ease-in-out;
 }
+mat-card > *{
+  padding:5px;
+}
 
 mat-card:hover {
   border-left: 10px solid #f06d06;

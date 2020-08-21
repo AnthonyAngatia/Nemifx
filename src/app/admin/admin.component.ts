@@ -1,28 +1,30 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormUploadComponent } from '../form-upload/form-upload.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
   uploads: any[];
   displayedColumns: string[] = ['content', 'Title', 'Time', 'Update', 'Delete'];
   dataSource = new MatTableDataSource(this.uploads);
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  uploadsSubscription: Subscription;
 
   constructor(private uploadService: UploadService, private dialog: MatDialog) { }
 
 
   ngOnInit() {
     let uploads = this.uploadService.getData();
-    uploads.snapshotChanges().subscribe(item => {
+    this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
         let x = element.payload.toJSON()
@@ -32,6 +34,10 @@ export class AdminComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.uploads);
       this.dataSource.sort = this.sort;
     })
+  }
+  ngOnDestroy(): void {
+    this.uploadsSubscription.unsubscribe();
+
   }
 
   onAdd() {

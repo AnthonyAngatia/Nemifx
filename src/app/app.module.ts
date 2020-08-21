@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirePerformanceModule } from "@angular/fire/performance";
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { UploadsComponent } from './uploads/uploads.component';
 import { UploadsOverviewComponent } from './uploads-overview/uploads-overview.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -25,25 +28,15 @@ import { ContentDisplayComponent } from './content-display/content-display.compo
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDDqzgI6RwYAJcXdhWJxnPs3k52o04Xo6k",
-  authDomain: "nemifx-e5e7c.firebaseapp.com",
-  databaseURL: "https://nemifx-e5e7c.firebaseio.com",
-  projectId: "nemifx-e5e7c",
-  storageBucket: "nemifx-e5e7c.appspot.com",
-  messagingSenderId: "964083208944",
-  appId: "1:964083208944:web:0bfc10ca11d6abfd18a835",
-  measurementId: "G-NLPYFTT71Y"
-};
-
 @NgModule({
   declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, FormUploadComponent, ContentDisplayComponent, FooterComponent, NavBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFirePerformanceModule,
     MatCardModule,
     MatButtonModule,
     MatTableModule,
@@ -51,7 +44,8 @@ const firebaseConfig = {
     MatIconModule,
     MatDialogModule,
     FormsModule,
-
+    MatToolbarModule,
+    MatSidenavModule,
     CKEditorModule
   ],
   providers: [],
