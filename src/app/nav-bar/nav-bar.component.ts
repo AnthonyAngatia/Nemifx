@@ -18,7 +18,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
     <mat-icon>menu</mat-icon>
   </button>
   <span>
-    <img class="logo" src="assets/nemilogo.png" alt="Logo" routerLink="/landing" />
+    <img class="logo" src="assets/nemilogo.png" alt="Logo" routerLink="/" />
   </span>
   <span class="example-spacer" style="flex: 1 1 auto"></span>
   <nav class="nav_links">

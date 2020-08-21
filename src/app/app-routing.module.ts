@@ -5,9 +5,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
-  {
-    path: 'landing', component: LandingPageComponent,
-  },
   { path: 'uploads', component: UploadsComponent },
   { path: 'admin', component: AdminComponent },
   {
