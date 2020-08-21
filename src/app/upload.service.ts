@@ -3,6 +3,7 @@ import { Upload } from './upload';
 import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
 import * as firebase from "firebase/app";
 import 'firebase/database';
+import { AngularFirePerformance } from '@angular/fire/performance';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UploadService {
   uploads: Upload;
   // selectedUpload:Upload = new Upload();
 
-  constructor(private firebaseDb: AngularFireDatabase) {
+  constructor(private firebaseDb: AngularFireDatabase, private perf: AngularFirePerformance) {
     this.uploadsList = this.firebaseDb.list("uploads");
   }
 

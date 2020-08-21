@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form-upload',
@@ -14,7 +15,7 @@ export class FormUploadComponent implements OnInit {
 
 
 
-  constructor(private uploadService: UploadService) { }
+  constructor(private uploadService: UploadService, private dialogRef: MatDialogRef<FormUploadComponent>) { }
 
   ngOnInit(): void {
     this.model = this.uploadService.uploads;
@@ -31,9 +32,7 @@ export class FormUploadComponent implements OnInit {
       alert("Succesfully updated");
 
     }
-
-    //TODO: Close the dialog box USE MATDIALOGREF
-
+    this.dialogRef.close();
   }
 
   onChange(event: CKEditor4.EventInfo) {
@@ -44,6 +43,9 @@ export class FormUploadComponent implements OnInit {
   onPreview() {
     confirm("This feature has not been enabled yet. Please wait for the next release of this application to use this feature");
 
+  }
+  onClose() {
+    this.dialogRef.close();
   }
 
 }

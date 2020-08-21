@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { element } from 'protractor';
+import { AngularFirePerformance } from '@angular/fire/performance';
 
 @Component({
   selector: 'app-uploads-overview',

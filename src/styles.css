@@ -17,3 +17,6 @@ mat-card {
   font-family: Manterah;
   src: url(assets/Manterah.ttf) format("opentype");
 }
+mat-drawer, mat-toolbar{
+  font-family: "Raleway", sans-serif;
+}

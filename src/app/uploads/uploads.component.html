@@ -8,7 +8,7 @@
   </div>
 
   <div class="cards">
-    <mat-card *ngFor="let singleUpload of uploads" class="uploads-card" routerLink="/uploads">
+    <mat-card class="uploads-card" *ngFor="let singleUpload of uploads" (click)="onOpen(singleUpload)">
 
       <div style="flex:0.5"><img src="assets/news.svg" alt="podcast" /></div>
       <div style="flex:5">
