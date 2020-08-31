@@ -21,16 +21,13 @@ import { UploadsOverviewComponent } from './uploads-overview/uploads-overview.co
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminComponent } from './admin/admin.component';
 import { environment } from 'src/environments/environment';
-import { FormsModule } from '@angular/forms';
-import { CKEditorModule } from "ckeditor4-angular";
-import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ContentDisplayComponent } from './content-display/content-display.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, FormUploadComponent, ContentDisplayComponent, FooterComponent, NavBarComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, FooterComponent, NavBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,14 +41,11 @@ import { AdminModule } from './admin/admin.module';
     MatSortModule,
     MatIconModule,
     MatDialogModule,
-    FormsModule,
     MatToolbarModule,
     MatSidenavModule,
-    CKEditorModule,
-    AdminModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [FormUploadComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

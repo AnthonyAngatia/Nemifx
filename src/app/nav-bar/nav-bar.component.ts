@@ -4,23 +4,36 @@ import { Component, OnInit, HostListener } from '@angular/core';
   selector: 'app-nav-bar',
   template: `
   
-  <mat-drawer #drawer mode="side"  >
+  <mat-drawer #drawer >
     <button mat-icon-button class="example-icon" aria-label="Close" (click)="drawer.toggle()">
       <mat-icon >close</mat-icon>
     </button>
     <nav class="nav_links_side">
-      <li routerLink ="/uploads"><a>Recent Posts</a></li>
-      <li><a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer" style="color:white">Telegram Group</a></li>
-    </nav>        
+      
+      <li>
+      <a routerLink ="/uploads">Recent Posts</a>
+    </li>
+      <li>
+        <a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer">Telegram Group</a>
+      </li>
+
+    </nav>     
   </mat-drawer>
+  <!-- Desktop Navigation view -->
   <mat-toolbar class="mat-toolbar">
-  <button  class="burger-btn" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()" >
+
+  <button  class="burger-btn" mat-icon-button  aria-label="Example icon-button with menu icon" (click)="drawer.toggle()" >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>
-    <img class="logo" src="assets/nemilogo.png" alt="Logo" routerLink="/" />
+
+  <span class="nav_spacer_2">
+    <a routerLink="/"> <img class="logo" src="assets/nemilogo.png" alt="Logo"/> </a>
   </span>
-  <span class="example-spacer" style="flex: 1 1 auto"></span>
+  <!--  Navigation links on Right Side -->
+  <span class ="nav_spacer_1" style="flex: 1 1 auto">
+  <a routerLink="/"><b> Nemi Fx</b> </a>
+</span>
+  <span class ="nav_spacer_2" style="flex: 1 1 auto"></span>
   <nav class="nav_links">
             <li routerLink ="/uploads">Recent Posts</li>
             <li><a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer" style="color:white">Telegram Group</a></li>
@@ -45,23 +58,11 @@ export class NavBarComponent implements OnInit {
   onWindowScroll(e: Event) {
     let element = document.querySelector('.mat-toolbar');
     if (window.pageYOffset > 140) {
-      console.log("dasa");
+      // console.log("dasa");
       element.classList.add('mat-toolbar2');
     } else {
       element.classList.remove('mat-toolbar2');
     }
   }
-  //   <div class="nav_container">
-  //   <header class="header">
-  //       <img class="logo" src="assets/nemilogo.png" alt="Logo" routerLink="/landing" />
-  // <nav class="nav_links">
-  //     <li routerLink ="/uploads">Recent Posts</li>
-  //     <li><a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer" style="color:white">Telegram Group</a></li>
-  //     <!-- <li class="analysis" >Analysis</li> -->
-  //     <!-- <li>Crypto markets</li> -->
-  //     <!-- <li>Community</li> -->
-  // </nav>
-  //   </header>
-  // </div>
 
 }
