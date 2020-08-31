@@ -4,8 +4,9 @@ import { FormUploadComponent } from '../form-upload/form-upload.component';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { AdminComponent } from './admin.component';
-import { FooterComponent } from '../footer/footer.component';
 import { MatTableModule } from '@angular/material/table';
+import { SharedModule } from '../shared/shared.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -13,15 +14,16 @@ import { MatTableModule } from '@angular/material/table';
   declarations: [
     FormUploadComponent,
     AdminComponent,
-    FooterComponent,
 
 
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     FormsModule,
     CKEditorModule,
-    MatTableModule
+    MatTableModule,
+    SharedModule
 
   ]
 })
