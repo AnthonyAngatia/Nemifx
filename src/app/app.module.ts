@@ -27,6 +27,7 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
 import { ContentDisplayComponent } from './content-display/content-display.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, AdminComponent, FormUploadComponent, ContentDisplayComponent, FooterComponent, NavBarComponent],
@@ -46,7 +47,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     FormsModule,
     MatToolbarModule,
     MatSidenavModule,
-    CKEditorModule
+    CKEditorModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent],
