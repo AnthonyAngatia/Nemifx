@@ -22,12 +22,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminComponent } from './admin/admin.component';
 import { environment } from 'src/environments/environment';
 import { ContentDisplayComponent } from './content-display/content-display.component';
-import { FooterComponent } from './footer/footer.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, FooterComponent, NavBarComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, NavBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,9 +42,11 @@ import { AdminModule } from './admin/admin.module';
     MatDialogModule,
     MatToolbarModule,
     MatSidenavModule,
+    AdminModule
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

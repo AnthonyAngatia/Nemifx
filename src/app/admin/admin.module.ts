@@ -13,7 +13,8 @@ import { MatTableModule } from '@angular/material/table';
   declarations: [
     FormUploadComponent,
     AdminComponent,
-    FooterComponent,
+    FooterComponent
+
 
 
   ],
@@ -21,8 +22,9 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule,
     FormsModule,
     CKEditorModule,
-    MatTableModule
+    MatTableModule,
+  ],
+  exports: [FooterComponent]
 
-  ]
 })
 export class AdminModule { }
