@@ -31,6 +31,7 @@
     height: 50px;
     width: 100px;
     cursor:pointer;
+    padding:8px 8px 8px 8px;
   }
   
   .nav_links {
@@ -59,17 +60,31 @@
     padding: 8px;
   }
 
-   .nav_links_side > li{
+   .nav_links_side  > li{
     margin: 8px;
     padding:8px;
     font-family: 'Raleway', sans-serif;
+    list-style-type: none;
+  }
+  .nav_links_side > li > a{
+    color: white;
   }
   mat-toolbar{
     font-family: 'Raleway', sans-serif;
   }
   .burger-btn{
-    display: block;
+    display: none;
     
+  }
+  .nav_spacer_1{
+    display:none;
+  }
+  .nav_spacer_1 > a{
+    color: white;
+    margin: auto;
+    font-size: 18pt;
+    
+
   }
   @media only screen and (max-width: 635px) {
     .burger-btn{
@@ -79,6 +94,13 @@
     .nav_links{
       display:none;
     }
+    .nav_spacer_1{
+      display:flex;
+    }
+    .nav_spacer_2{
+      display: none;
+    }
+
   }
   
  

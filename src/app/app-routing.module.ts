@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'uploads', component: UploadsComponent },
   { path: 'admin', component: AdminComponent },
   {
-    path: '', component: LandingPageComponent
+    path: '', component: LandingPageComponent, pathMatch: 'full'
   }
 ];
 
