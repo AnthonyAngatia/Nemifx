@@ -23,14 +23,17 @@
         <div style="flex:0.5; margin: auto;">
           <mat-icon>poll</mat-icon>
         </div>
-        <div class="big-screen" style="flex:5;margin: auto;">
+        <div class="big-screen" style="flex:5;margin: auto;padding: 8px;">
           <p>{{ singleUpload.title | slice:0:60 }}...</p>
         </div>
-        <div class="small-screen" style="flex:5;margin: auto;">
+        <div class="small-screen" style="flex:5;margin: auto;padding: 8px;">
           <p>{{ singleUpload.title | slice:0:30 }} ...</p>
         </div>
-        <div style="flex:2">
+        <div class="big-screen" style="flex:2">
           <p style="color: #fa5001;">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
+        </div>
+        <div class="small-screen" style="flex:2">
+          <p style="color: #fa5001;">{{ singleUpload.time | date: 'EEE, MMMM d'}}</p>
         </div>
 
       </mat-expansion-panel-header>

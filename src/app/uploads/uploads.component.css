@@ -31,3 +31,16 @@ mat-expansion-panel-header > *{
 mat-expansion-panel-header:hover {
   border-left: 10px solid #f06d06;
 }
+.small-screen{
+  display: none;
+}
+
+@media only screen and (max-width: 635px) {
+   .small-screen{
+    display: block;
+  }
+  .big-screen{
+    display: none;
+  }
+  
+}
