@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./uploads.component.css'],
 })
 export class UploadsComponent implements OnInit, OnDestroy {
+  panelOpenState: boolean;
   uploads: any[];
   uploadsSubscription: Subscription;
   constructor(private uploadService: UploadService, private dialog: MatDialog) {

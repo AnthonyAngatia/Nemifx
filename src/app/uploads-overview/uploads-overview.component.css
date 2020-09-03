@@ -1,17 +1,22 @@
   @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
-  * {
+  /* * {
     font-family: "Raleway", sans-serif;
+  } */
+  mat-expansion-panel-header{
+    font-family: "Raleway", sans-serif;
+
   }
 
-  mat-card {
+  mat-expansion-panel-header {
+    min-height: 58px;
     border-left: 5px solid #fa5001;
     transition-duration: 200ms;
     transition-property: border-left;
     transition-timing-function: ease-in-out;
   }
 
-  mat-card:hover {
+  mat-expansion-panel-header:hover {
     border-left: 10px solid #f06d06;
   }
 
@@ -47,19 +52,37 @@
     max-height: 300px;
   }
 
-  .uploads-card {
-    /* border: 1px solid red; */
+  .expansion-panel{
+    margin: 8px;
+  }
+  .call-buttons {
+    text-align: center;
+  }
+  .call-buttons > a {
+    text-decoration:none;
+    border-radius: 0px;
+    color: aliceblue;
+    font-size: 24px;
+    background-color: #fa5001;
+    padding: 10px;
+    box-shadow: 1px 3px 9px #212121;
+    transition: box-shadow, background-color 0.5s ease 0s;
+  }
+  .call-buttons > a:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(207, 66, 0);
+  }
+
+  /* .uploads-card {
     margin: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 700px;
     cursor: pointer;
-  }
-/* For debuggin purpose */
-  .uploads-card>* {
-    /* border: 1px solid green; */
-  }
+  } */
+
   @media only screen and (max-width: 635px) {
       .uploads-outer{
         display: grid;

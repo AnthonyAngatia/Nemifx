@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 import { UploadsComponent } from './uploads/uploads.component';
 import { UploadsOverviewComponent } from './uploads-overview/uploads-overview.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -24,9 +26,10 @@ import { environment } from 'src/environments/environment';
 import { ContentDisplayComponent } from './content-display/content-display.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminModule } from './admin/admin.module';
+import { PuretestComponent } from './puretest/puretest.component';
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, NavBarComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, NavBarComponent, PuretestComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,6 +45,7 @@ import { AdminModule } from './admin/admin.module';
     MatDialogModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatExpansionModule,
     AdminModule
 
   ],

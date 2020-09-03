@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./uploads-overview.component.css'],
 })
 export class UploadsOverviewComponent implements OnInit, OnDestroy {
+  panelOpenState: boolean;
   uploads: any[] = [1, 2, 3, 4];
   uploadsSubscription: Subscription;
   constructor(private uploadService: UploadService) {
