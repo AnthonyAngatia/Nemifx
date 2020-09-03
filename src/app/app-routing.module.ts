@@ -8,7 +8,6 @@ import { PuretestComponent } from './puretest/puretest.component';
 const routes: Routes = [
   { path: 'uploads', component: UploadsComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'test', component: PuretestComponent },
   {
     path: '', component: LandingPageComponent, pathMatch: 'full'
   }

@@ -6,6 +6,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { AdminComponent } from './admin.component';
 import { FooterComponent } from '../footer/footer.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -23,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     CKEditorModule,
     MatTableModule,
+    MatButtonModule
   ],
   exports: [FooterComponent]
 
