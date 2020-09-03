@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
-* {
+/* * {
   font-family: "Raleway", sans-serif;
-}
+} */
 .heading{
   text-align: center;
 }
@@ -11,23 +11,23 @@
   max-width: 700px;
 
 }
-.uploads-card {
+/* .uploads-card {
   margin: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-}
-mat-card {
+} */
+mat-expansion-panel-header {
   border-left: 5px solid #fa5001;
   transition-duration: 200ms;
   transition-property: border-left;
   transition-timing-function: ease-in-out;
 }
-mat-card > *{
+mat-expansion-panel-header > *{
   padding:5px;
 }
 
-mat-card:hover {
+mat-expansion-panel-header:hover {
   border-left: 10px solid #f06d06;
 }

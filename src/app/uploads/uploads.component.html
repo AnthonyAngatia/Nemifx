@@ -6,16 +6,23 @@
   </div>
 
   <div class="cards">
-    <mat-card class="uploads-card" *ngFor="let singleUpload of uploads" (click)="onOpen(singleUpload)">
+    <mat-expansion-panel class="expansion-panel" style="margin: 8px;;" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false" *ngFor="let singleUpload of uploads" class="uploads-card">
+      <mat-expansion-panel-header>
+        <div style="flex:0.5; margin: auto;">
+          <mat-icon>poll</mat-icon>
+        </div>
+        <div style="flex:5">
+          <p>{{ singleUpload.title | slice:0:70 }}</p>
+        </div>
+        <div style="flex:2">
+          <p style="color: #fa5001;">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
+        </div>
 
-      <div style="flex:0.5"><img src="assets/news.svg" alt="podcast" /></div>
-      <div style="flex:5">
-        <p>{{ singleUpload.title | slice:0:70 }}</p>
-      </div>
-      <div style="flex:2">
-        <p style="color: #fa5001;">{{ singleUpload.time | date: 'EEE, MMM d, h:mm a'}}</p>
-      </div>
-    </mat-card>
+      </mat-expansion-panel-header>
+
+      <p [innerHTML]="singleUpload.editorContent"></p>
+    </mat-expansion-panel>
   </div>
 </div>
 <app-footer></app-footer>
