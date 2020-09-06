@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    let uploads = this.uploadService.getData();
+    let uploads = this.uploadService.getAllEntries();
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {

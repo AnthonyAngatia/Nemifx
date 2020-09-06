@@ -39,9 +39,23 @@ export class UploadService {
 
   }
 
-  getData() {
+  getLastThreeEntries() {
+    this.uploadsList = this.firebaseDb.list('uploads', query => {
+      return query.limitToFirst(3);
+    });
+    return this.uploadsList;
+  }
+  getLastTenEntries() {
+    this.uploadsList = this.firebaseDb.list('uploads', query => {
+      return query.limitToFirst(10);
+    });
+    return this.uploadsList;
+
+  }
+  getAllEntries() {
     this.uploadsList = this.firebaseDb.list('uploads');
     return this.uploadsList;
+
   }
   insertData(upload: Upload) {
     upload.time = Date();

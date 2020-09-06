@@ -19,7 +19,7 @@ export class UploadsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    let uploads = this.uploadService.getData();
+    let uploads = this.uploadService.getLastThreeEntries();
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
@@ -39,7 +39,44 @@ export class UploadsComponent implements OnInit, OnDestroy {
     this.uploadService.uploads = upload;
     this.dialog.open(ContentDisplayComponent);
 
+  }
 
+  lastThreeEntries() {
+    this.uploads = [];
+    let uploads = this.uploadService.getLastThreeEntries();
+    this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
+      this.uploads = [];
+      item.forEach(element => {
+        let x = element.payload.toJSON()
+        x["$key"] = element.key;
+        this.uploads.unshift(x)
+      })
+    })
+
+  }
+  lastTenEntries() {
+    this.uploads = [];
+    this.uploadService.getLastTenEntries().
+      snapshotChanges().subscribe(item => {
+        this.uploads = [];
+        item.forEach(element => {
+          let x = element.payload.toJSON()
+          x["$key"] = element.key;
+          this.uploads.unshift(x)
+        })
+      })
+  }
+  allEntries() {
+    this.uploads = [];
+    this.uploadService.getAllEntries().
+      snapshotChanges().subscribe(item => {
+        this.uploads = [];
+        item.forEach(element => {
+          let x = element.payload.toJSON()
+          x["$key"] = element.key;
+          this.uploads.unshift(x)
+        })
+      })
 
   }
 }

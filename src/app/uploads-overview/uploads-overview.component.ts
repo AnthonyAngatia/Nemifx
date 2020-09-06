@@ -18,7 +18,7 @@ export class UploadsOverviewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    let uploads = this.uploadService.getData();
+    let uploads = this.uploadService.getLastTenEntries();
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
