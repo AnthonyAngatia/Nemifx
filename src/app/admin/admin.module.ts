@@ -7,6 +7,9 @@ import { AdminComponent } from './admin.component';
 import { FooterComponent } from '../footer/footer.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -22,6 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     CKEditorModule,
     MatTableModule,
     MatButtonModule

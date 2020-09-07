@@ -4,6 +4,7 @@ import { Upload } from '../upload';
 import { MatDialog } from '@angular/material/dialog';
 import { ContentDisplayComponent } from '../content-display/content-display.component';
 import { Subscription } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-uploads',
