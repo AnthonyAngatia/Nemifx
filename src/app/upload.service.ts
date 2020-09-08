@@ -41,13 +41,13 @@ export class UploadService {
 
   getLastThreeEntries() {
     this.uploadsList = this.firebaseDb.list('uploads', query => {
-      return query.limitToFirst(3);
+      return query.limitToLast(3);
     });
     return this.uploadsList;
   }
   getLastTenEntries() {
     this.uploadsList = this.firebaseDb.list('uploads', query => {
-      return query.limitToFirst(10);
+      return query.limitToLast(10);
     });
     return this.uploadsList;
 
@@ -67,6 +67,7 @@ export class UploadService {
     this.uploadsList.remove(key);
   }
   updateData(upload: Upload) {
+    console.log(upload);
     this.uploadsList.update(upload.$key, {
       title: upload.title,
       time: upload.time,

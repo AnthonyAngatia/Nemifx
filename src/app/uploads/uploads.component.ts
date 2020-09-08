@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Sanitizer } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { Upload } from '../upload';
 import { MatDialog } from '@angular/material/dialog';
 import { ContentDisplayComponent } from '../content-display/content-display.component';
 import { Subscription } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-uploads',
@@ -14,7 +15,7 @@ export class UploadsComponent implements OnInit, OnDestroy {
   panelOpenState: boolean;
   uploads: any[];
   uploadsSubscription: Subscription;
-  constructor(private uploadService: UploadService, private dialog: MatDialog) {
+  constructor(private uploadService: UploadService, private dialog: MatDialog, private sanitizer: DomSanitizer) {
 
   }
 
@@ -23,9 +24,11 @@ export class UploadsComponent implements OnInit, OnDestroy {
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
-        let x = element.payload.toJSON()
-        x["$key"] = element.key;
-        this.uploads.unshift(x)
+        let uploadJsonObject = element.payload.toJSON();
+        console.log(uploadJsonObject);
+        uploadJsonObject["editorContent"] = this.sanitizer.bypassSecurityTrustHtml(uploadJsonObject["editorContent"]);
+        uploadJsonObject["$key"] = element.key;
+        this.uploads.unshift(uploadJsonObject)
       })
     })
   }
