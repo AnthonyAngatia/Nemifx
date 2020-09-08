@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UploadService } from '../upload.service';
-import { element } from 'protractor';
-import { AngularFirePerformance } from '@angular/fire/performance';
 import { Subscription } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-uploads-overview',
@@ -13,7 +12,7 @@ export class UploadsOverviewComponent implements OnInit, OnDestroy {
   panelOpenState: boolean;
   uploads: any[] = [1, 2, 3, 4];
   uploadsSubscription: Subscription;
-  constructor(private uploadService: UploadService) {
+  constructor(private uploadService: UploadService, private sanitizer: DomSanitizer) {
 
   }
 
@@ -22,10 +21,10 @@ export class UploadsOverviewComponent implements OnInit, OnDestroy {
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
-        let x = element.payload.toJSON()
-        x["$key"] = element.key;
-        // this.uploads.push(x);
-        this.uploads.unshift(x)
+        let uploadJsonObject = element.payload.toJSON();
+        uploadJsonObject["editorContent"] = this.sanitizer.bypassSecurityTrustHtml(uploadJsonObject["editorContent"]);
+        uploadJsonObject["$key"] = element.key;
+        this.uploads.unshift(uploadJsonObject)
       })
     })
   }

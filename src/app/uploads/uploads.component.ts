@@ -25,7 +25,6 @@ export class UploadsComponent implements OnInit, OnDestroy {
       this.uploads = [];
       item.forEach(element => {
         let uploadJsonObject = element.payload.toJSON();
-        console.log(uploadJsonObject);
         uploadJsonObject["editorContent"] = this.sanitizer.bypassSecurityTrustHtml(uploadJsonObject["editorContent"]);
         uploadJsonObject["$key"] = element.key;
         this.uploads.unshift(uploadJsonObject)
@@ -50,9 +49,10 @@ export class UploadsComponent implements OnInit, OnDestroy {
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
-        let x = element.payload.toJSON()
-        x["$key"] = element.key;
-        this.uploads.unshift(x)
+        let uploadJsonObject = element.payload.toJSON();
+        uploadJsonObject["editorContent"] = this.sanitizer.bypassSecurityTrustHtml(uploadJsonObject["editorContent"]);
+        uploadJsonObject["$key"] = element.key;
+        this.uploads.unshift(uploadJsonObject)
       })
     })
 
@@ -63,9 +63,10 @@ export class UploadsComponent implements OnInit, OnDestroy {
       snapshotChanges().subscribe(item => {
         this.uploads = [];
         item.forEach(element => {
-          let x = element.payload.toJSON()
-          x["$key"] = element.key;
-          this.uploads.unshift(x)
+          let uploadJsonObject = element.payload.toJSON();
+          uploadJsonObject["editorContent"] = this.sanitizer.bypassSecurityTrustHtml(uploadJsonObject["editorContent"]);
+          uploadJsonObject["$key"] = element.key;
+          this.uploads.unshift(uploadJsonObject)
         })
       })
   }
@@ -75,9 +76,10 @@ export class UploadsComponent implements OnInit, OnDestroy {
       snapshotChanges().subscribe(item => {
         this.uploads = [];
         item.forEach(element => {
-          let x = element.payload.toJSON()
-          x["$key"] = element.key;
-          this.uploads.unshift(x)
+          let uploadJsonObject = element.payload.toJSON();
+          uploadJsonObject["editorContent"] = this.sanitizer.bypassSecurityTrustHtml(uploadJsonObject["editorContent"]);
+          uploadJsonObject["$key"] = element.key;
+          this.uploads.unshift(uploadJsonObject)
         })
       })
 
