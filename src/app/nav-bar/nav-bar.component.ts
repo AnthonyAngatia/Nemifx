@@ -9,13 +9,14 @@ import { Component, OnInit, HostListener } from '@angular/core';
       <mat-icon >close</mat-icon>
     </button>
     <nav class="nav_links_side">
-      
+      <ul>
       <li>
       <a routerLink ="/uploads">Recent Posts</a>
     </li>
       <li>
         <a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer">Telegram Group</a>
       </li>
+</ul>
 
     </nav>     
   </mat-drawer>
@@ -35,11 +36,13 @@ import { Component, OnInit, HostListener } from '@angular/core';
 </span>
   <span class ="nav_spacer_2" style="flex: 1 1 auto"></span>
   <nav class="nav_links">
-            <li routerLink ="/uploads">Recent Posts</li>
+    <ul>
+            <li><a routerLink ="/uploads" style="color:white">Recent Posts </a></li>
             <li><a href="https://t.me/nemifx_moneymining" target="_blank" rel="noopener noreferrer" style="color:white">Telegram Group</a></li>
             <!-- <li class="analysis" >Analysis</li> -->
             <!-- <li>Crypto markets</li> -->
             <!-- <li>Community</li> -->
+</ul>
   </nav>
 </mat-toolbar>
 
