@@ -9,6 +9,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DropZoneDirective } from './drop-zone.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 
@@ -17,7 +19,9 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     FormUploadComponent,
     AdminComponent,
-    FooterComponent
+    FooterComponent,
+    DropZoneDirective,
+    FileUploadComponent
 
 
 

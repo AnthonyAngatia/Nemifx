@@ -1,0 +1,21 @@
+<p>file-upload works!</p>
+<div class="dropzone" appDropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+    [class.hovering]="isHovering">
+
+    <h3>NemiFx Dropzone</h3>
+    <p>Drag and Drop a file</p>
+    <div class="file">
+        <label class="file-label"></label>
+        <input type="file" (change)="startUpload($event.target.files)">
+
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <div *ngIf="percentage | async as pct">
+        <progress [value]="pct" max="100"></progress>
+    </div>
+
+</div>
