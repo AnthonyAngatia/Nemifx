@@ -27,9 +27,10 @@ import { ContentDisplayComponent } from './content-display/content-display.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdminModule } from './admin/admin.module';
 import { PuretestComponent } from './puretest/puretest.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, NavBarComponent, PuretestComponent],
+  declarations: [AppComponent, UploadsComponent, UploadsOverviewComponent, LandingPageComponent, ContentDisplayComponent, NavBarComponent, PuretestComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
