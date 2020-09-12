@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import { tap } from "rxjs/operators";
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css']
 })
-export class FileUploadComponent implements OnInit {
+export class FileUploadComponent implements OnInit, OnDestroy {
   //main tast
   task: AngularFireUploadTask;
 
@@ -19,11 +21,18 @@ export class FileUploadComponent implements OnInit {
   downloadURL: Observable<string>;
   //dropzone css
   isHovering: boolean;
+  //databaselist
+  imageList: AngularFireList<any>;
+  //url
+  urlString: String;
 
 
-  constructor(private storage: AngularFireStorage) { }
+  constructor(private storage: AngularFireStorage, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
+  }
+  ngOnDestroy(): void {
+
   }
 
   toggleHover(event: boolean) {
@@ -47,11 +56,31 @@ export class FileUploadComponent implements OnInit {
     //Monitor progress
 
     this.percentage = this.task.percentageChanges();
-    this.snapshot = this.task.snapshotChanges();
+    this.snapshot = this.task.snapshotChanges()
+    this.snapshot.pipe(
+      tap(snap => {
+        if (snap.bytesTransferred === snap.totalBytes) {
+          this.downloadURL.subscribe(url => {
+            // console.log(url);
+            //To be refactored using rxjs observables
+            const time = new Date();
+            this.db.list("images").push({
+              url: url,
+              name: file.name,
+              size: snap.totalBytes,
+              time: time
+            });
+          });
+        }
+      })
+    )
 
 
     //file url
-    // this.downloadURL = this.task.downloadURL();
+    this.downloadURL = this.storage.ref(path).getDownloadURL();
+
+
+
   }
 
   //dETERMINS if upload task is actiove

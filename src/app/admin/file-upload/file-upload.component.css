@@ -1,3 +1,6 @@
+* {
+    color: black;
+}
 .dropzone{
     display: flex;
     align-items: center;
