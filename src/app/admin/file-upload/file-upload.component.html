@@ -1,9 +1,11 @@
-<p>file-upload works!</p>
+<a routerLink="/admin" routerLinkActive="active">
+    <p style="cursor: pointer; padding:5px"> &lt;<u> Back to admin panel</u></p>
+</a>
 <div class="dropzone" appDropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
     [class.hovering]="isHovering">
 
     <h3>NemiFx Dropzone</h3>
-    <p>Drag and Drop a file/image/video</p>
+    <p>Drag and Drop an image</p>
     <div class="file">
         <label class="file-label"></label>
         <input type="file" (change)="startUpload($event.target.files)">
@@ -27,12 +29,23 @@
         [disabled]="!(snap?.state === 'paused')">Resume</button>
 
 
-
-
 </div>
 <hr><br>
-<div *ngIf="downloadURL | async as url">
-    <h3>Results</h3>
-    <img [src]="url">
-    <a [href]="url">Download me?</a>
+
+<p><b>NOTE:</b>Right click on the image to copy image link</p>
+<div class="card">
+    <mat-card *ngFor="let image of imagesArray" style="background-color: #f0f0f0;">
+        <div style="text-align: center;">
+            <img [src]="image.url" alt="Image uploaded">
+        </div>
+
+        <mat-card-content style="background-color: #e3e3e3;">
+            <p>{{ image.name }}</p>
+            <p>{{ image.time | date: 'EEE, MMM d, h:mm a'}}</p>
+            <mat-card-actions>
+                <button mat-button color="warn" (click)="inProgress()">DELETE</button>
+            </mat-card-actions>
+        </mat-card-content>
+
+    </mat-card>
 </div>

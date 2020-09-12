@@ -17,9 +17,6 @@
     
   }
   .header {
-    /* background-color: black; */
-    /* color: #003838; */
-    /* border: 1px solid greenyellow; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,18 +52,18 @@
   }
   mat-drawer{
     color:white;
-    /* border:1px solid red; */
+    position: fixed;
     min-width:40vw;
     padding: 8px;
   }
 
-   .nav_links_side  > li{
+   .nav_links_side  > ul >li{
     margin: 8px;
     padding:8px;
     font-family: 'Raleway', sans-serif;
     list-style-type: none;
   }
-  .nav_links_side > li > a{
+  .nav_links_side > ul > li > a{
     color: white;
   }
   mat-toolbar{
