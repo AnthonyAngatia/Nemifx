@@ -13,6 +13,7 @@ export class UploadService {
   uploadsList: AngularFireList<any>;
   randomText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, repellat! Omnis minima repellendus aperiam in facilis, ipsum harum quos, natus officia nemo eum et. Quibusdam numquam velit autem rerum alias?Architecto esse unde fugiat id voluptatem itaque illo maiores blanditiis provident, cum cumque dolor rerum tempora asperiores quis nesciunt ipsa dolore. Eos dolores error suscipit sunt architecto animi beatae quos?";
   uploads: Upload;
+  maintenanceMessage: string = "This module is under maintenance. Please wait till the fix is made. Sorry for any inconvenience caused."
   // selectedUpload:Upload = new Upload();
 
   constructor(private firebaseDb: AngularFireDatabase, private perf: AngularFirePerformance) {

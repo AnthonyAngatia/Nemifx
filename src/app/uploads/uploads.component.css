@@ -40,7 +40,7 @@ mat-expansion-panel-header:hover {
 }
 
 .buttons-div {
-  background-color: grey;
+  background-color: #5a5a5a;
   /* border: 1px solid red; */
   display: flex;
 }

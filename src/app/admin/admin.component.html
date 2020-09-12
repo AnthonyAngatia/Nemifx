@@ -3,14 +3,62 @@
         padding: 8px;
         margin: 5px;
     }
+
+    .cards {
+        margin: 2em 1em;
+        max-width: 80vw;
+
+    }
+
+    .heading {
+        text-align: center;
+        color: black;
+    }
+
+    .outer-div {
+        border: 1px solid grey;
+        border-radius: 3px;
+        margin: auto;
+        margin-top: 8px;
+        max-width: 80vw;
+    }
+
+    .buttons-div {
+        background-color: #5a5a5a;
+        display: flex;
+    }
+
+    .buttons-div>button {
+        margin: 5px;
+    }
+
+    @media only screen and (max-width: 635px) {
+        .outer-div {
+            max-width: 95vw;
+        }
+
+        .cards {
+            max-width: 95vw;
+            margin: 2em 0.5em;
+        }
+
+    }
 </style>
-<h1 style="color: black;">Welcome</h1>
-<div style="text-align: center; color: black;">
-    <h1>List</h1>
-</div>
 <div>
-    <button mat-raised-button (click)="onAdd()">Add</button>
-    <div style="margin: 1em;">
+    <h1 class="heading">
+        Admin Panel
+    </h1>
+    <h2 style="color: #5a5a5a;">This page is best viewed on a large screen device</h2>
+</div>
+<div class="outer-div">
+    <div class="buttons-div">
+        <button mat-stroked-button (click)="onMaintenance()">View tips </button>
+        <button mat-stroked-button (click)="onAdd()">Add tip </button>
+        <button mat-stroked-button (click)="onMaintenance()">Upload Files</button>
+        <button mat-stroked-button (click)="onMaintenance()">View Files</button>
+
+    </div>
+    <div class="cards">
         <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
             <ng-container matColumnDef="Title">
                 <th class="cell" mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
@@ -46,4 +94,6 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <app-footer></app-footer>
+
+</div>
+<app-footer></app-footer>

@@ -53,7 +53,9 @@ export class AdminComponent implements OnInit, OnDestroy {
     if (confirm('Are you sure you want to delete this item?') == true) {
       this.uploadService.deleteData(key);
     }
-
+  }
+  onMaintenance() {
+    alert(this.uploadService.maintenanceMessage);
   }
 
 }
