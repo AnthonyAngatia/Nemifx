@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { MAT_DRAWER_CONTAINER } from '@angular/material/sidenav/drawer';
 
 @Component({
   selector: 'app-nav-bar',
@@ -59,9 +60,10 @@ export class NavBarComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: Event) {
+
     let element = document.querySelector('.mat-toolbar');
     if (window.pageYOffset > 140) {
-      // console.log("dasa");
+
       element.classList.add('mat-toolbar2');
     } else {
       element.classList.remove('mat-toolbar2');

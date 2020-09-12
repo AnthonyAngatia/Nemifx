@@ -11,6 +11,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DropZoneDirective } from './drop-zone.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { MatCardModule } from '@angular/material/card';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -27,13 +29,15 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 
   ],
   imports: [
+    AppRoutingModule,
     CommonModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     CKEditorModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   exports: [FooterComponent]
 

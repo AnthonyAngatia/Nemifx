@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Sanitizer } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UploadService } from '../upload.service';
 import { Upload } from '../upload';
 import { MatDialog } from '@angular/material/dialog';

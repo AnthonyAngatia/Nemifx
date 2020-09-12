@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 export class AdminComponent implements OnInit, OnDestroy {
   uploads: any[];
   displayedColumns: string[] = ['content', 'Title', 'Time', 'Update', 'Delete'];
-  dataSource = new MatTableDataSource(this.uploads);
+  dataSource = new MatTableDataSource();
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   uploadsSubscription: Subscription;
 
