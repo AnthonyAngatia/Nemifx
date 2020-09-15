@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UploadService } from '../upload.service';
-import { Upload } from '../upload';
 import { MatDialog } from '@angular/material/dialog';
-import { ContentDisplayComponent } from '../content-display/content-display.component';
 import { Subscription } from 'rxjs';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -34,12 +32,6 @@ export class UploadsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.uploadsSubscription.unsubscribe();
-
-  }
-
-  onOpen(upload: Upload) {
-    this.uploadService.uploads = upload;
-    this.dialog.open(ContentDisplayComponent);
 
   }
 
