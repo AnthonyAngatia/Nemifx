@@ -3,6 +3,7 @@ import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
 import { MatDialogRef } from '@angular/material/dialog';
+import { title } from 'process';
 
 @Component({
   selector: 'app-form-upload',
@@ -12,6 +13,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class FormUploadComponent implements OnInit {
   today: any = Date();
   model: Upload = new Upload();
+  TITLE: string = this.uploadService.TITLE;
+  EDITORCONTENT: string = this.uploadService.EDITORCONTENT;
 
 
 
@@ -23,6 +26,8 @@ export class FormUploadComponent implements OnInit {
 
   onSubmit(formData) {
     // console.log(formData);
+    localStorage.removeItem(this.TITLE);
+    localStorage.removeItem(this.EDITORCONTENT);
     if (formData.$key == null) {
       this.uploadService.insertData(formData);
       alert("Succesfully added");
@@ -35,17 +40,24 @@ export class FormUploadComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onChange(event: CKEditor4.EventInfo) {
-    //Gor debugging purpose
-    // console.log(event.editor.getData());
-  }
   //TODO: Implemented later within own dialog box
-  onPreview() {
-    confirm("This feature has not been enabled yet. Please wait for the next release of this application to use this feature");
+  onClear() {
+    this.model = new Upload();
+    localStorage.removeItem(this.uploadService.TITLE);
+    localStorage.removeItem(this.uploadService.EDITORCONTENT);
 
   }
-  onClose() {
+  onClose(uploadForm) {
     this.dialogRef.close();
   }
-
+  public onChange(event: CKEditor4.EventInfo) {
+    const editorContent = event.editor.getData()
+    // console.log(editorContent);
+    localStorage.setItem(this.EDITORCONTENT, editorContent);
+  }
+  onTitleChange(input) {
+    const title = input.value;
+    // console.log(title);
+    localStorage.setItem(this.TITLE, title);
+  }
 }

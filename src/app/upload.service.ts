@@ -9,7 +9,8 @@ import { AngularFirePerformance } from '@angular/fire/performance';
   providedIn: 'root'
 })
 export class UploadService {
-
+  TITLE: string = "title";
+  EDITORCONTENT: string = "editorContent"
   uploadsList: AngularFireList<any>;
   randomText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, repellat! Omnis minima repellendus aperiam in facilis, ipsum harum quos, natus officia nemo eum et. Quibusdam numquam velit autem rerum alias?Architecto esse unde fugiat id voluptatem itaque illo maiores blanditiis provident, cum cumque dolor rerum tempora asperiores quis nesciunt ipsa dolore. Eos dolores error suscipit sunt architecto animi beatae quos?";
   uploads: Upload;
@@ -21,11 +22,12 @@ export class UploadService {
   }
 
   initializeForm() {
+
     const upload = {
       $key: null,
-      title: "My title goes here and it can extend till somewhere here",
+      title: (localStorage.getItem(this.TITLE) ? localStorage.getItem(this.TITLE) : "My title goes here and it can extend till somewhere here"),
       time: "",
-      editorContent: this.randomText
+      editorContent: (localStorage.getItem(this.EDITORCONTENT) ? localStorage.getItem(this.EDITORCONTENT) : this.randomText)
     }
     return this.uploads = upload;
   }

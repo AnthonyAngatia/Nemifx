@@ -55,7 +55,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     }
   }
   onMaintenance() {
-    alert(this.uploadService.maintenanceMessage);
+    alert("You can view the uploaded files by clicking the upload files button");
   }
 
 }
