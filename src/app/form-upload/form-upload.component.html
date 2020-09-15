@@ -6,20 +6,24 @@
 
     <mat-form-field hintLabel="Max 70 characters" appearance="fill" style="width: 90%;">
         <mat-label style="color:whitesmoke">Enter some input</mat-label>
-        <input matInput #input maxlength="70" placeholder="My title Goes here" [(ngModel)]="model.title" name="title">
+        <input matInput #input maxlength="70" placeholder="My title Goes here" [(ngModel)]="model.title" name="title"
+            (change)="onTitleChange(input)">
         <mat-hint align="end">{{input.value?.length || 0}}/70</mat-hint>
     </mat-form-field>
 
     <div class="form-group">
         <label for="name">Editor</label>
         <ckeditor #editor [(ngModel)]="model.editorContent" id="textcontent" name="editorContent" type="divarea"
-            style="color:black">
+            (change)="onChange($event)" style="color:black">
         </ckeditor>
     </div>
     <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
-    <button type="submit" mat-raised-button class="btn btn-success" style="margin-right: 1em;">Submit</button>
-    <button type="button" (click)="onPreview()" mat-raised-button class="btn btn-success"
-        style="margin-right: 1em;">Preview</button>
-    <button type="button" (click)="onClose()" mat-raised-button color="warn" class="btn btn-success">Close</button>
+    <button type="submit" title="Add as a post" mat-raised-button class="btn btn-success"
+        style="margin-right: 1em;">Submit</button>
+    <button type="button" title="Clear all input fields" (click)="onClear()" mat-raised-button class="btn btn-success"
+        style="margin-right: 1em;">Clear</button>
+    <button type="button" (click)="onClose(uploadsForm)" mat-raised-button color="warn"
+        class="btn btn-success">Close</button>
+
 
 </form>
