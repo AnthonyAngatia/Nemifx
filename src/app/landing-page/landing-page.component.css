@@ -14,9 +14,18 @@
     /* margin-top: 1em; */
     /* width: 99.79vw; */
   }
-  /* ****************** Navigation *************************/
-  /*******************            *********************/
-  /******************* section ***********************/
+ /* 
+ *Media Query for image size */
+ @media (max-width: 1600px){
+   .section_1{
+     background-image: url("/assets/Section1Ggrnd_medium.jpg");
+   }
+ }
+ @media (max-width: 800px){
+  .section_1{
+    background-image: url("/assets/Section1Ggrnd_small.jpg");
+  }
+}
   
   /* ****************** Call *************************/
   /******************* to action *********************/
