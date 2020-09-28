@@ -1,11 +1,11 @@
 <a routerLink="/admin" routerLinkActive="active">
-    <p style="cursor: pointer; padding:5px"> &lt;<u> Back to admin panel</u></p>
+  <p style="cursor: pointer; padding:5px"> &lt;<u> <b>Back to admin panel</b></u></p>
 </a>
 <div class="dropzone" appDropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
     [class.hovering]="isHovering">
 
     <h3>NemiFx Dropzone</h3>
-    <p>Drag and Drop an image</p>
+    <p>Drag and Drop an image to upload it on the server</p>
     <div class="file">
         <label class="file-label"></label>
         <input type="file" (change)="startUpload($event.target.files)">

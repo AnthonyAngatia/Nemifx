@@ -1,3 +1,4 @@
+/* tslint:disable:quotemark */
 import { Injectable } from '@angular/core';
 import { Upload } from './upload';
 import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
@@ -25,8 +26,8 @@ export class UploadService {
 
     const upload = {
       $key: null,
-      title: (localStorage.getItem(this.TITLE) ? localStorage.getItem(this.TITLE) : "My title goes here and it can extend till somewhere here"),
-      time: "",
+      title: (localStorage.getItem(this.TITLE) ? localStorage.getItem(this.TITLE) : 'My title goes here and it can extend till somewhere here'),
+      time: '',
       editorContent: (localStorage.getItem(this.EDITORCONTENT) ? localStorage.getItem(this.EDITORCONTENT) : this.randomText)
     }
     return this.uploads = upload;
@@ -62,7 +63,6 @@ export class UploadService {
   }
   insertData(upload: Upload) {
     upload.time = Date();
-    delete upload.$key;
     firebase.database().ref("uploads").push(upload);
     this.initializeForm();
   }

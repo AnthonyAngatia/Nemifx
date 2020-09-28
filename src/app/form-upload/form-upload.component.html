@@ -1,29 +1,33 @@
+<div class ="form">
 <div style="text-align: center;">
     <h1>Add or Update a post</h1>
 </div>
-<form #uploadsForm="ngForm" (ngSubmit)="onSubmit(uploadsForm.value)">
-    <input type="hidden" style=" color: blueviolet;" name="$key" [(ngModel)]="model.$key">
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" >
+<!--    <input type="hidden" style=" color: blueviolet;" name="$key" [(ngModel)]="model.$key">-->
 
     <mat-form-field hintLabel="Max 70 characters" appearance="fill" style="width: 90%;">
-        <mat-label style="color:whitesmoke">Enter some input</mat-label>
-        <input matInput #input maxlength="70" placeholder="My title Goes here" [(ngModel)]="model.title" name="title"
+        <mat-label style="color:whitesmoke">Enter the title of your post</mat-label>
+        <input matInput #input maxlength="70"
+               placeholder="My title Goes here"
+               formControlName="title"
             (change)="onTitleChange(input)">
         <mat-hint align="end">{{input.value?.length || 0}}/70</mat-hint>
     </mat-form-field>
 
     <div class="form-group">
-        <label for="name">Editor</label>
-        <ckeditor #editor [(ngModel)]="model.editorContent" id="textcontent" name="editorContent" type="divarea"
+        <label for="textcontent">Text Editor</label>
+        <ckeditor
+                  id="textcontent"
+                  type="divarea"
+                  formControlName="editorContent"
             (change)="onChange($event)" style="color:black">
         </ckeditor>
     </div>
-    <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>
-    <button type="submit" title="Add as a post" mat-raised-button class="btn btn-success"
+<!--    <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>-->
+    <button type="submit" title="Add as a post" mat-raised-button
         style="margin-right: 1em;">Submit</button>
-    <button type="button" title="Clear all input fields" (click)="onClear()" mat-raised-button class="btn btn-success"
+    <button type="button" title="Clear all input fields" (click)="onClear()" mat-raised-button color="warn"
         style="margin-right: 1em;">Clear</button>
-    <button type="button" (click)="onClose(uploadsForm)" mat-raised-button color="warn"
-        class="btn btn-success">Close</button>
-
 
 </form>
+</div>

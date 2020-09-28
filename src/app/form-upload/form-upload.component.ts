@@ -1,9 +1,9 @@
+/* tslint:disable:no-trailing-whitespace */
 import { Component, OnInit } from '@angular/core';
 import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
-import { MatDialogRef } from '@angular/material/dialog';
-import { title } from 'process';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-form-upload',
@@ -15,32 +15,39 @@ export class FormUploadComponent implements OnInit {
   model: Upload = new Upload();
   TITLE: string = this.uploadService.TITLE;
   EDITORCONTENT: string = this.uploadService.EDITORCONTENT;
+  uploadForm: FormGroup;
+  upload: Upload = new Upload();
 
 
 
-  constructor(private uploadService: UploadService, private dialogRef: MatDialogRef<FormUploadComponent>) { }
+  constructor(private uploadService: UploadService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.model = this.uploadService.uploads;
+    this.uploadForm = this.fb.group({
+      title: ['My title is here'],
+      editorContent: [{value: this.EDITORCONTENT, disabled: false}]
+    });
   }
 
-  onSubmit(formData) {
+  onSubmit() {
     // console.log(formData);
     localStorage.removeItem(this.TITLE);
     localStorage.removeItem(this.EDITORCONTENT);
+    console.log(this.uploadForm.value);
+    const formData = this.uploadForm.value;
+
     if (formData.$key == null) {
       this.uploadService.insertData(formData);
-      alert("Succesfully added");
+      alert('Successfully added');
     }
     else {
       this.uploadService.updateData(formData);
-      alert("Succesfully updated");
+      alert('Successfully updated');
 
     }
-    this.dialogRef.close();
   }
 
-  //TODO: Implemented later within own dialog box
   onClear() {
     this.model = new Upload();
     localStorage.removeItem(this.uploadService.TITLE);
@@ -48,7 +55,7 @@ export class FormUploadComponent implements OnInit {
 
   }
   onClose(uploadForm) {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
   public onChange(event: CKEditor4.EventInfo) {
     const editorContent = event.editor.getData()

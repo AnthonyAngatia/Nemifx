@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormUploadComponent } from '../form-upload/form-upload.component';
 import { Subscription } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -18,21 +19,21 @@ export class AdminComponent implements OnInit, OnDestroy {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   uploadsSubscription: Subscription;
 
-  constructor(private uploadService: UploadService, private dialog: MatDialog) { }
+  constructor(private uploadService: UploadService, private router: Router) { }
 
 
   ngOnInit() {
-    let uploads = this.uploadService.getAllEntries();
+    const uploads = this.uploadService.getAllEntries();
     this.uploadsSubscription = uploads.snapshotChanges().subscribe(item => {
       this.uploads = [];
       item.forEach(element => {
-        let x = element.payload.toJSON()
+        const x = element.payload.toJSON();
         x["$key"] = element.key;
-        this.uploads.unshift(x)
-      })
+        this.uploads.unshift(x);
+      });
       this.dataSource = new MatTableDataSource(this.uploads);
       this.dataSource.sort = this.sort;
-    })
+    });
   }
   ngOnDestroy(): void {
     this.uploadsSubscription.unsubscribe();
@@ -41,21 +42,22 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   onAdd() {
     this.uploadService.initializeForm();
-    this.dialog.open(FormUploadComponent);
+    // this.dialog.open(FormUploadComponent);
   }
 
   onUpdate(row) {
     this.uploadService.populateForm(row);
-    this.dialog.open(FormUploadComponent);
+    // TODO: Check on the router
+    // this.dialog.open(FormUploadComponent);
   }
 
   onDelete(key: string) {
-    if (confirm('Are you sure you want to delete this item?') == true) {
+    if (confirm('Are you sure you want to delete this item?') === true) {
       this.uploadService.deleteData(key);
     }
   }
   onMaintenance() {
-    alert("You can view the uploaded files by clicking the upload files button");
+    alert('You can view the uploaded files by clicking the upload files button');
   }
 
 }

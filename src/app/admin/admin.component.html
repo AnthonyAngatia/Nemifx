@@ -28,8 +28,9 @@
         display: flex;
     }
 
-    .buttons-div>button {
+    .buttons-div>button, a {
         margin: 5px;
+      color: inherit;
     }
 
     @media only screen and (max-width: 635px) {
@@ -52,10 +53,18 @@
 </div>
 <div class="outer-div">
     <div class="buttons-div">
+      <a>
         <button mat-stroked-button (click)="onMaintenance()">View tips </button>
+      </a>
+      <a routerLink = "/addpost">
         <button mat-stroked-button (click)="onAdd()">Add tip </button>
-        <button mat-stroked-button routerLink="/fileupload">Upload Files</button>
+      </a>
+      <a routerLink = "/fileupload" >
+        <button mat-stroked-button>Upload Files</button>
+      </a>
+      <a>
         <button mat-stroked-button (click)="onMaintenance()">View Files</button>
+      </a>
 
     </div>
     <div class="cards">

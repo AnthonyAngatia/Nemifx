@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormUploadComponent } from '../form-upload/form-upload.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { AdminComponent } from './admin.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { DropZoneDirective } from './drop-zone.directive';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { MatCardModule } from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import { AppRoutingModule } from '../app-routing.module';
 
 
@@ -31,13 +33,14 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     AppRoutingModule,
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     CKEditorModule,
     MatTableModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   exports: [FooterComponent]
 
