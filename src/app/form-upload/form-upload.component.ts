@@ -1,4 +1,4 @@
-/* tslint:disable:no-trailing-whitespace */
+/* tslint:disable:no-trailing-whitespace quotemark */
 import { Component, OnInit } from '@angular/core';
 import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
@@ -13,10 +13,11 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class FormUploadComponent implements OnInit {
   today: any = Date();
   model: Upload = new Upload();
-  TITLE: string = this.uploadService.TITLE;
-  EDITORCONTENT: string = this.uploadService.EDITORCONTENT;
+  Title: string = this.uploadService.TITLE;
+  EditorContent: string = this.uploadService.EDITORCONTENT;
   uploadForm: FormGroup;
   upload: Upload = new Upload();
+  private randomText = 'Post Content';
 
 
 
@@ -24,16 +25,20 @@ export class FormUploadComponent implements OnInit {
 
   ngOnInit(): void {
     this.model = this.uploadService.uploads;
+    console.log(this.model);
+    const title =  (localStorage.getItem(this.Title) ? localStorage.getItem(this.Title) : 'Enter title');
+    const editorContent =    (localStorage.getItem(this.EditorContent) ? localStorage.getItem(this.EditorContent) : this.randomText);
+
     this.uploadForm = this.fb.group({
-      title: ['My title is here'],
-      editorContent: [{value: this.EDITORCONTENT, disabled: false}]
+      title,
+      editorContent
     });
   }
 
   onSubmit() {
     // console.log(formData);
-    localStorage.removeItem(this.TITLE);
-    localStorage.removeItem(this.EDITORCONTENT);
+    localStorage.removeItem(this.Title);
+    localStorage.removeItem(this.EditorContent);
     console.log(this.uploadForm.value);
     const formData = this.uploadForm.value;
 
@@ -47,24 +52,29 @@ export class FormUploadComponent implements OnInit {
 
     }
   }
+  textAreaEdit(value: string){
+    this.uploadForm.patchValue({
+      editorContent: value
+    });
+  }
 
   onClear() {
+    console.log("here");
     this.model = new Upload();
     localStorage.removeItem(this.uploadService.TITLE);
     localStorage.removeItem(this.uploadService.EDITORCONTENT);
-
-  }
-  onClose(uploadForm) {
-    // this.dialogRef.close();
+    this.uploadForm.setValue({
+      title: null,
+      editorContent: null
+    });
   }
   public onChange(event: CKEditor4.EventInfo) {
-    const editorContent = event.editor.getData()
-    // console.log(editorContent);
-    localStorage.setItem(this.EDITORCONTENT, editorContent);
+    const editorContent = event.editor.getData();
+    localStorage.setItem(this.EditorContent, editorContent);
   }
   onTitleChange(input) {
     const title = input.value;
     // console.log(title);
-    localStorage.setItem(this.TITLE, title);
+    localStorage.setItem(this.Title, title);
   }
 }

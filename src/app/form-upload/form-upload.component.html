@@ -1,4 +1,16 @@
-<div class ="form">
+<div class="outer-div">
+
+
+<div class="buttons-div">
+  <a routerLink = "/admin" >
+    <button mat-stroked-button>Admin Panel</button>
+  </a>
+  <a routerLink = "/fileupload">
+    <button mat-stroked-button >Image Gallery </button>
+  </a>
+
+</div>
+<div class ="form_wrapper">
 <div style="text-align: center;">
     <h1>Add or Update a post</h1>
 </div>
@@ -23,11 +35,13 @@
             (change)="onChange($event)" style="color:black">
         </ckeditor>
     </div>
-<!--    <input class="form-control" type="hidden" name="time" value="{{ today}}" [(ngModel)]="model.time"><br>-->
-    <button type="submit" title="Add as a post" mat-raised-button
+    <button type="submit" title="Publish input as a post" mat-raised-button
         style="margin-right: 1em;">Submit</button>
     <button type="button" title="Clear all input fields" (click)="onClear()" mat-raised-button color="warn"
         style="margin-right: 1em;">Clear</button>
-
 </form>
+  <textarea #txtAreaValue (input)="textAreaEdit(txtAreaValue.value)" style="margin-top: 15px; width: 100%" >
+    {{uploadForm.value.editorContent}}
+  </textarea>
+</div>
 </div>
