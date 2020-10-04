@@ -1,9 +1,10 @@
+/* tslint:disable:no-trailing-whitespace quotemark */
 import { Component, OnInit } from '@angular/core';
 import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
-import { MatDialogRef } from '@angular/material/dialog';
-import { title } from 'process';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-upload',
@@ -13,51 +14,71 @@ import { title } from 'process';
 export class FormUploadComponent implements OnInit {
   today: any = Date();
   model: Upload = new Upload();
-  TITLE: string = this.uploadService.TITLE;
-  EDITORCONTENT: string = this.uploadService.EDITORCONTENT;
+  Title: string = this.uploadService.TITLE;
+  EditorContent: string = this.uploadService.EDITORCONTENT;
+  uploadForm: FormGroup;
+  upload: Upload = new Upload();
+  private randomText = 'Post Content';
 
 
 
-  constructor(private uploadService: UploadService, private dialogRef: MatDialogRef<FormUploadComponent>) { }
+  constructor(private uploadService: UploadService, private fb: FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
     this.model = this.uploadService.uploads;
+    // console.log(this.model);
+    const title =  (localStorage.getItem(this.Title) ? localStorage.getItem(this.Title) : this.model.title);
+    const editorContent =    (localStorage.getItem(this.EditorContent) ? localStorage.getItem(this.EditorContent) : this.model.editorContent);
+
+    this.uploadForm = this.fb.group({
+      title,
+      editorContent
+    });
   }
 
-  onSubmit(formData) {
+  onSubmit() {
     // console.log(formData);
-    localStorage.removeItem(this.TITLE);
-    localStorage.removeItem(this.EDITORCONTENT);
-    if (formData.$key == null) {
+    localStorage.removeItem(this.Title);
+    localStorage.removeItem(this.EditorContent);
+    console.log(this.uploadForm.value);
+    const formData = this.uploadForm.value;
+
+    if (this.model.$key == null) {
       this.uploadService.insertData(formData);
-      alert("Succesfully added");
+      alert('Successfully added');
     }
     else {
+      formData.$key = this.model.$key;
+      formData.time = this.model.time;
       this.uploadService.updateData(formData);
-      alert("Succesfully updated");
+      alert('Successfully updated');
 
     }
-    this.dialogRef.close();
+    this.router.navigate(['admin'])
+  }
+  textAreaEdit(value: string){
+    this.uploadForm.patchValue({
+      editorContent: value
+    });
   }
 
-  //TODO: Implemented later within own dialog box
   onClear() {
+    console.log("here");
     this.model = new Upload();
     localStorage.removeItem(this.uploadService.TITLE);
     localStorage.removeItem(this.uploadService.EDITORCONTENT);
-
-  }
-  onClose(uploadForm) {
-    this.dialogRef.close();
+    this.uploadForm.setValue({
+      title: null,
+      editorContent: null
+    });
   }
   public onChange(event: CKEditor4.EventInfo) {
-    const editorContent = event.editor.getData()
-    // console.log(editorContent);
-    localStorage.setItem(this.EDITORCONTENT, editorContent);
+    const editorContent = event.editor.getData();
+    localStorage.setItem(this.EditorContent, editorContent);
   }
   onTitleChange(input) {
     const title = input.value;
     // console.log(title);
-    localStorage.setItem(this.TITLE, title);
+    localStorage.setItem(this.Title, title);
   }
 }
