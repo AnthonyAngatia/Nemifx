@@ -64,9 +64,9 @@ export class NavBarComponent implements OnInit {
     let element = document.querySelector('.mat-toolbar');
     if (window.pageYOffset > 140) {
 
-      element.classList.add('mat-toolbar2');
+      // element.classList.add('mat-toolbar2');
     } else {
-      element.classList.remove('mat-toolbar2');
+      // element.classList.remove('mat-toolbar2');
     }
   }
 

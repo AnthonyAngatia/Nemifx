@@ -40,7 +40,8 @@
     <button type="button" title="Clear all input fields" (click)="onClear()" mat-raised-button color="warn"
         style="margin-right: 1em;">Clear</button>
 </form>
-  <textarea #txtAreaValue (input)="textAreaEdit(txtAreaValue.value)" style="margin-top: 15px; width: 100%" >
+<h4>HTML Review</h4>
+  <textarea #txtAreaValue (input)="textAreaEdit(txtAreaValue.value)" style="margin-top: 15px; width: 100%; height:250px" >
     {{uploadForm.value.editorContent}}
   </textarea>
 </div>

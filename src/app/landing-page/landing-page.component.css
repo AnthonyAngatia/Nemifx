@@ -18,12 +18,21 @@
  *Media Query for image size */
  @media (max-width: 1600px){
    .section_1{
-     background-image: url("/assets/Section1Ggrnd_medium.jpg");
+    background: linear-gradient(
+      to bottom right,
+      rgba(245, 246, 252, 0),
+      rgba(204, 174, 3, 0.452)
+    ),
+    url("/assets/Section1Ggrnd_medium.jpg");
    }
  }
  @media (max-width: 800px){
   .section_1{
-    background-image: url("/assets/Section1Ggrnd_small.jpg");
+    background: linear-gradient(
+      to bottom right,
+      rgba(245, 246, 252, 0),
+      rgba(204, 174, 3, 0.452)
+    ), url("/assets/Section1Ggrnd_small.jpg");
   }
 }
   
