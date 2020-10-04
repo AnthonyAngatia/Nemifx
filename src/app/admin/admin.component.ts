@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { FormUploadComponent } from '../form-upload/form-upload.component';
 import { Subscription } from 'rxjs';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -18,8 +18,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   uploadsSubscription: Subscription;
-
-  constructor(private uploadService: UploadService, private router: Router) { }
+  Title: string = this.uploadService.TITLE;
+  EditorContent: string = this.uploadService.EDITORCONTENT;
+  constructor(private uploadService: UploadService, private router: Router, private route:ActivatedRoute) { }
 
 
   ngOnInit() {
@@ -46,9 +47,13 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   onUpdate(row) {
+    //Clear the localstorage
+    localStorage.removeItem(this.Title);
+    localStorage.removeItem(this.EditorContent);
     this.uploadService.populateForm(row);
-    // TODO: Check on the router
-    // this.dialog.open(FormUploadComponent);
+    // this.router.navigate(['addPost'], {relativeTo: this.route});// TODO
+    this.router.navigate(['addpost']);
+    
   }
 
   onDelete(key: string) {
@@ -57,7 +62,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     }
   }
   onMaintenance() {
-    alert('You can view the uploaded files by clicking the upload files button');
+    alert('You can view the uploaded images by clicking the upload files button');
   }
 
 }

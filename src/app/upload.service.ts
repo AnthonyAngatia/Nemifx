@@ -70,7 +70,7 @@ export class UploadService {
     this.uploadsList.remove(key);
   }
   updateData(upload: Upload) {
-    console.log(upload);
+    // console.log(upload);
     this.uploadsList.update(upload.$key, {
       title: upload.title,
       time: upload.time,

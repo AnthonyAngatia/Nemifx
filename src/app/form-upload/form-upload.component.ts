@@ -4,6 +4,7 @@ import { Upload } from '../upload';
 import { UploadService } from '../upload.service';
 import { CKEditor4 } from 'ckeditor4-angular';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-upload',
@@ -21,13 +22,13 @@ export class FormUploadComponent implements OnInit {
 
 
 
-  constructor(private uploadService: UploadService, private fb: FormBuilder) { }
+  constructor(private uploadService: UploadService, private fb: FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
     this.model = this.uploadService.uploads;
-    console.log(this.model);
-    const title =  (localStorage.getItem(this.Title) ? localStorage.getItem(this.Title) : 'Enter title');
-    const editorContent =    (localStorage.getItem(this.EditorContent) ? localStorage.getItem(this.EditorContent) : this.randomText);
+    // console.log(this.model);
+    const title =  (localStorage.getItem(this.Title) ? localStorage.getItem(this.Title) : this.model.title);
+    const editorContent =    (localStorage.getItem(this.EditorContent) ? localStorage.getItem(this.EditorContent) : this.model.editorContent);
 
     this.uploadForm = this.fb.group({
       title,
@@ -42,15 +43,18 @@ export class FormUploadComponent implements OnInit {
     console.log(this.uploadForm.value);
     const formData = this.uploadForm.value;
 
-    if (formData.$key == null) {
+    if (this.model.$key == null) {
       this.uploadService.insertData(formData);
       alert('Successfully added');
     }
     else {
+      formData.$key = this.model.$key;
+      formData.time = this.model.time;
       this.uploadService.updateData(formData);
       alert('Successfully updated');
 
     }
+    this.router.navigate(['admin'])
   }
   textAreaEdit(value: string){
     this.uploadForm.patchValue({

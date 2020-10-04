@@ -1,3 +1,4 @@
+import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
@@ -33,7 +34,7 @@ export class FileUploadComponent implements OnInit, OnDestroy {
   constructor(private storage: AngularFireStorage, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
-    this.imagesLimit = 5;
+    this.imagesLimit = 25;
     this.imagesRef = this.db.list('images');
     this.db.list('images', ref => ref.limitToLast(this.imagesLimit)).valueChanges().subscribe(image => {
       this.imagesArray = [];
