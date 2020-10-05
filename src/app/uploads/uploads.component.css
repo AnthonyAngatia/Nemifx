@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+:host{
+  font-family: "Raleway", sans-serif;
+}
 
 /* * {
   font-family: "Raleway", sans-serif;
