@@ -56,3 +56,4 @@ database.rules.json
 # VScode
 /.vscode
 
+/src/environments
